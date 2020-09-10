@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Usuario } from 'src/models/usuario.model';
 import { SessionService } from 'src/services/session.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'button-entrar',
@@ -17,7 +18,8 @@ export class ButtonEntrarComponent implements OnInit {
   constructor(
     private _authService:AuthService,
     private _sessionService:SessionService,
-    private toastr: ToastrService
+    private _toastr: ToastrService,
+    private _router:Router
   ) { }
 
   ngOnInit(): void {
@@ -32,10 +34,10 @@ export class ButtonEntrarComponent implements OnInit {
     try{
       let usuario:Usuario = await this._authService.autenticar(this.formGroup.value.username, this.formGroup.value.password);
       this._sessionService.setValue('usuario', JSON.stringify(usuario));
-      this.toastr.success('Usuário cadastrado com sucesso');
+      this._router.navigate(['/']);
     }
     catch(error){
-      console.log(`ERROR: ${error}`);
+      this._toastr.error(`${error.response.data.message}`);
     }
   }
 

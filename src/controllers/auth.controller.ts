@@ -18,7 +18,8 @@ export class AuthController{
                 "Content-Type": "application/json",
                 Accept: "application/json",
             },
-        }}).then(value => usuario = value.data)
+        }})
+        .then(value => usuario = value.data)
         
         return usuario;
     }
