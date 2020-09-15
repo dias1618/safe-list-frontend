@@ -1,1 +1,20 @@
-<p>home works!</p>
+<app-header></app-header>
+<mat-drawer-container class="example-container">
+    <mat-drawer style="background-color: black;" mode="side" opened>
+        <div fxLayout="column" fxLayoutGap="10px">
+            <button style="color: white;" mat-button>
+                <mat-icon style="color: white;">home</mat-icon>
+                Principal
+            </button>
+            <button style="color: white;" mat-button>
+                <mat-icon style="color: white;">person</mat-icon>
+                Usuários
+            </button>
+            <button style="color: white;" mat-button>
+                <mat-icon style="color: white;">settings</mat-icon>
+                Configurações
+            </button>    
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>

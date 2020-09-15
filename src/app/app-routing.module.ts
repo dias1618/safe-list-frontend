@@ -21,9 +21,5 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
-  providers: [
-    AuthGuard,
-    SessionService
-  ]
 })
 export class AppRoutingModule { }

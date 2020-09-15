@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <div fxFlex>
+        <div>
+            <div fxFlex="60px">
+                <mat-icon style="font-size: 50px;">person</mat-icon>
+            </div>
+            <div fxFlex fxLayout="column" fxLayoutAlign="start">
+                <div fxFlex style="font-size: 16px;">{{usuario.nome}}</div>
+                <div fxFlex style="font-size: 14px;">{{usuario.email}}</div>
+            </div>
+        </div>
+    </div>
+    <div fxFlex>
+        PRINCIPAL
+    </div>
+    <button fxFlex="50px" mat-button (click)="onLogout()">
+        <mat-icon>power_settings_new</mat-icon>
+    </button>
+</mat-toolbar>

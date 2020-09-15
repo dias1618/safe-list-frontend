@@ -7,6 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from 'src/shared/angular-material.module';
 import { SharedModule } from 'src/shared/shared.module';
 import { ToastrModule } from "ngx-toastr";
+import { HeaderComponent } from './shared/header/header.component';
+import { AuthService } from 'src/services/auth.service';
+import { AuthGuard } from 'src/guards/auth-guard';
+import { AuthController } from 'src/controllers/auth.controller';
+import { SessionService } from 'src/services/session.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,6 @@ import { ToastrModule } from "ngx-toastr";
       preventDuplicates: true,
     }),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
