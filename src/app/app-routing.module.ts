@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/guards/auth-guard';
-import { SessionService } from 'src/services/session.service';
 
 const routes: Routes = [
   {
@@ -21,5 +20,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
+  declarations: [],
 })
 export class AppRoutingModule { }

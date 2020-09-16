@@ -1,20 +1,14 @@
 <app-header></app-header>
-<mat-drawer-container class="example-container">
+<mat-drawer-container class="container">
     <mat-drawer style="background-color: black;" mode="side" opened>
-        <div fxLayout="column" fxLayoutGap="10px">
-            <button style="color: white;" mat-button>
-                <mat-icon style="color: white;">home</mat-icon>
-                Principal
-            </button>
-            <button style="color: white;" mat-button>
-                <mat-icon style="color: white;">person</mat-icon>
-                Usuários
-            </button>
-            <button style="color: white;" mat-button>
-                <mat-icon style="color: white;">settings</mat-icon>
-                Configurações
-            </button>    
-        </div>
+        <side-nav></side-nav>
     </mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
+    <mat-drawer-content>
+        <div class="content">
+            <app-data></app-data>
+            <mat-divider></mat-divider>
+            <app-grid-listas></app-grid-listas>
+            <app-button-add></app-button-add>
+        </div>
+    </mat-drawer-content>
 </mat-drawer-container>

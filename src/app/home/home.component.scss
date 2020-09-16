@@ -1,4 +1,12 @@
-.example-container {
-    min-height: 89%;
-    min-width: 40%;
+:host{
+    .container {
+        min-height: 89%;
+        min-width: 40%;
+    }
+
+    .content{
+        margin: 20px;
+    }
+
+    
 }
