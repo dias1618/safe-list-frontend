@@ -8,19 +8,9 @@ import axios from "axios";
 export class AuthController{
 
     async auth(loginDto:LoginDto){
-
         let usuario:Usuario;
-
-        await axios.post<Usuario>('http://localhost:3000/auth', loginDto, { headers: {
-            common: {
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                Pragma: "no-cache",
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-        }})
-        .then(value => usuario = value.data)
-        
+        await axios.post<Usuario>(`${environment.baseUrl}/auth`, loginDto, environment.axiosConfig)
+            .then(value => usuario = value.data)
         return usuario;
     }
 }

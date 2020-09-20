@@ -8,6 +8,13 @@ import { AuthService } from 'src/services/auth.service';
 import { SessionService } from 'src/services/session.service';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/guards/auth-guard';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
+import { SidenavComponent } from 'src/app/shared/sidenav/sidenav.component';
+
+let components = [
+  HeaderComponent,
+  SidenavComponent,
+]
 
 let modules = [
   CommonModule,
@@ -19,10 +26,17 @@ let modules = [
 ]
 
 @NgModule({
+  entryComponents: [
+    ...components
+  ],
+  declarations: [
+    ...components
+  ],
   imports: [
-    ...modules
+    ...modules,
   ],
   exports: [
+    ...components,
     ...modules
   ],
   providers: [

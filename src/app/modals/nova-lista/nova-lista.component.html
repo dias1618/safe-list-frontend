@@ -1,0 +1,34 @@
+<div fxFlex fxLayout="column" fxLayoutGap="10px">
+    <mat-toolbar fxFlex color="primary">
+        <div class="header" fxFlex fxLayoutAlign="center center">
+            NOVA LISTA
+        </div>
+    </mat-toolbar>
+
+    <div fxFlex fxLayout="column" class="modal-content">
+        <div fxFlex>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Data</mat-label>
+                <input matInput [matDatepicker]="picker" (dateChange)="changeData($event)" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div fxFlex fxLayoutGap="10px">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Hora Inicial</mat-label>
+                <input matInput [ngxTimepicker]="horaInicial" [(ngModel)]="lista.horaInicial" [format]="24" readonly>
+                <ngx-material-timepicker #horaInicial></ngx-material-timepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Hora Final</mat-label>
+                <input matInput [ngxTimepicker]="horaFinal" [(ngModel)]="lista.horaFinal" [format]="24" readonly>
+                <ngx-material-timepicker #horaFinal></ngx-material-timepicker>
+            </mat-form-field>
+        </div>
+        <div fxFlex fxLayoutAlign="end" fxLayoutGap="10px">
+            <button mat-raised-button color="accent" (click)="cancel()">Cancelar</button>
+            <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+        </div>
+    </div>
+</div>

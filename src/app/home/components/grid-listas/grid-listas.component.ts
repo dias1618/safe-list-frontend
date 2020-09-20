@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ListaModel } from 'src/models/lista.model';
+import { ListaService } from 'src/services/lista.service';
 
 @Component({
   selector: 'app-grid-listas',
@@ -7,13 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GridListasComponent implements OnInit {
 
-  constructor() { }
+  listas:ListaModel[];
 
-  ngOnInit(): void {
+  constructor(
+    private _listaService:ListaService
+  ) { }
+
+  async ngOnInit(){
+    this.listas = await this._listaService.getAll();
   }
 
-  doStuff(){
-    console.log('asd')
+  getHorario(lista:ListaModel){
+    return `${lista.horaInicial} - ${lista.horaFinal}`;
+  }
+
+  getParticipantes(lista:ListaModel){
+    return `${lista.participantes.length}/70`;
   }
 
 }

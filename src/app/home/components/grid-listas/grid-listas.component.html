@@ -1,11 +1,11 @@
 <mat-grid-list cols="4" rowHeight="2:1">
-    <mat-grid-tile>
+    <mat-grid-tile *ngFor="let lista of listas">
         <mat-card fxFlex fxLayout="column" >
             <mat-card-header fxFlex fxLayout="column" >
-                <mat-card-subtitle class="info-header">07:00 - 08:30</mat-card-subtitle>
+                <mat-card-subtitle class="info-header">{{getHorario(lista)}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-                <div class="info-title">27/70</div>
+                <div class="info-title">{{getParticipantes(lista)}}</div>
                 <div class="info-subtitle">participantes</div>
             </mat-card-content>
         </mat-card>

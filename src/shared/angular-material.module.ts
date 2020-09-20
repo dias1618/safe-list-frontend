@@ -17,6 +17,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
    imports: [

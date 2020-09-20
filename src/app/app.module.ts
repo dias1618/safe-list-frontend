@@ -7,11 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from 'src/shared/angular-material.module';
 import { SharedModule } from 'src/shared/shared.module';
 import { ToastrModule } from "ngx-toastr";
-import { HeaderComponent } from './shared/header/header.component';
-import { AuthService } from 'src/services/auth.service';
-import { AuthGuard } from 'src/guards/auth-guard';
-import { AuthController } from 'src/controllers/auth.controller';
-import { SessionService } from 'src/services/session.service';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { ListaService } from 'src/services/lista.service';
+import { ListaController } from 'src/controllers/lista.controller';
 
 @NgModule({
   declarations: [
@@ -28,6 +26,11 @@ import { SessionService } from 'src/services/session.service';
       positionClass: 'toast-bottom-center',
       preventDuplicates: true,
     }),
+    NgxMaterialTimepickerModule.setLocale('pt-BR')
+  ],
+  providers: [
+    ListaController,
+    ListaService
   ],
   bootstrap: [AppComponent]
 })
