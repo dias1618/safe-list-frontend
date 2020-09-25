@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { AuthService } from 'src/services/auth.service';
-import { Usuario } from 'src/models/usuario.model';
-import { SessionService } from 'src/services/session.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { Usuario } from 'src/app/models/usuario.model';
+import { SessionService } from 'src/app/services/session.service';
 
 @Injectable()
 @Component({

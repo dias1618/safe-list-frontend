@@ -1,4 +1,4 @@
-import { DateTools } from "../shared/date.tools";
+import { DateTools } from "../../shared/date.tools";
 import { ParticipanteModel } from './participante.model';
 
 export class ListaModel{

@@ -9,12 +9,11 @@ import { SidenavComponent } from '../shared/sidenav/sidenav.component';
 import { DataComponent } from './components/data/data.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
-import { DiasSemanaEnum } from 'src/enums/dias-semana.enum';
+import { DiasSemanaEnum } from 'src/app/enums/dias-semana.enum';
 import { GridListasComponent } from './components/grid-listas/grid-listas.component';
 import { ButtonAddComponent } from './components/button-add/button-add.component';
 import { NovaListaComponent } from '../modals/nova-lista/nova-lista.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import { ListaService } from 'src/services/lista.service';
 
 @NgModule({
   entryComponents: [

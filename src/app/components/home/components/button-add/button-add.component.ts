@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { NovaListaComponent } from 'src/app/modals/nova-lista/nova-lista.component';
-import { ListaModel } from 'src/models/lista.model';
+import { NovaListaComponent } from 'src/app/components/modals/nova-lista/nova-lista.component';
+import { ListaModel } from 'src/app/models/lista.model';
 
 @Component({
   selector: 'app-button-add',

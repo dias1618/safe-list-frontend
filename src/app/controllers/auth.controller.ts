@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LoginDto } from 'src/dtos/login.dto';
+import { LoginDto } from 'src/app/dtos/login.dto';
 import { environment } from 'src/environments/environment';
-import { Usuario } from 'src/models/usuario.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import axios from "axios";
 
 @Injectable()

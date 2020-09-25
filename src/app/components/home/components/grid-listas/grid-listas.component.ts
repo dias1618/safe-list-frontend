@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ListaModel } from 'src/models/lista.model';
-import { ListaService } from 'src/services/lista.service';
+import { ListaModel } from 'src/app/models/lista.model';
+import { ListaService } from 'src/app/services/lista.service';
 
 @Component({
   selector: 'app-grid-listas',

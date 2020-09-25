@@ -8,8 +8,8 @@ import { AngularMaterialModule } from 'src/shared/angular-material.module';
 import { SharedModule } from 'src/shared/shared.module';
 import { ToastrModule } from "ngx-toastr";
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import { ListaService } from 'src/services/lista.service';
-import { ListaController } from 'src/controllers/lista.controller';
+import { ListaService } from 'src/app/services/lista.service';
+import { ListaController } from 'src/app/controllers/lista.controller';
 
 @NgModule({
   declarations: [

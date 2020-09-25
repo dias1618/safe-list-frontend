@@ -1,7 +1,7 @@
-import { LoginDto } from 'src/dtos/login.dto';
-import { AuthController } from 'src/controllers/auth.controller';
+import { LoginDto } from 'src/app/dtos/login.dto';
+import { AuthController } from 'src/app/controllers/auth.controller';
 import { Injectable } from '@angular/core';
-import { Usuario } from 'src/models/usuario.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { Router } from '@angular/router';
 
 @Injectable()

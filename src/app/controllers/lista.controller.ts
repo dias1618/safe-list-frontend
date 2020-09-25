@@ -1,4 +1,4 @@
-import { ListaModel } from 'src/models/lista.model';
+import { ListaModel } from 'src/app/models/lista.model';
 import axios from "axios";
 import { environment } from 'src/environments/environment';
 

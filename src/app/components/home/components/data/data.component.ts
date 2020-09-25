@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getDay } from 'date-fns'
-import { DiasSemanaEnum } from 'src/enums/dias-semana.enum';
+import { DiasSemanaEnum } from 'src/app/enums/dias-semana.enum';
 
 @Component({
   selector: 'app-data',

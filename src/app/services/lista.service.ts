@@ -1,5 +1,5 @@
-import { ListaModel } from 'src/models/lista.model';
-import { ListaController } from 'src/controllers/lista.controller';
+import { ListaModel } from 'src/app/models/lista.model';
+import { ListaController } from 'src/app/controllers/lista.controller';
 import { DateTools } from 'src/shared/date.tools';
 
 export class ListaService{
@@ -17,14 +17,12 @@ export class ListaService{
         let listas = await this._listaController.getAll();
         let listasModel:ListaModel[] = [];
         for(let lista of listas){
-            console.log('lista = ', lista)
             let listaModel = new ListaModel({
                 id: lista['id'],
                 data: new Date(lista['data']),
                 horaInicial: DateTools.timeToString(new Date(lista['horaInicial'])),
                 horaFinal: DateTools.timeToString(new Date(lista['horaFinal'])),
             });
-            console.log('listaModel = ', listaModel)
             listasModel.push(listaModel);
         }
         return listasModel;
