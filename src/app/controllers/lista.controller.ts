@@ -15,7 +15,14 @@ export class ListaController{
             .then(value => lista = value.data)
     }
 
-    async getAll(){
+    async get(id:number):Promise<ListaModel>{
+        let lista:ListaModel;
+        await axios.get<any>(`${environment.baseUrl}/listas/${id}`, environment.axiosConfig)
+            .then(value => lista = value.data);
+        return lista;
+    }
+
+    async getAll():Promise<ListaModel[]>{
         let listas:[];
         await axios.get<any>(`${environment.baseUrl}/listas`, environment.axiosConfig)
             .then(value => listas = value.data);

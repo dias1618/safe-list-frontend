@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'lista',
+    path: 'listas',
     loadChildren: () => import('./components/lista/lista.module').then(m=>m.ListaModule),
     canActivate: [AuthGuard]
   },

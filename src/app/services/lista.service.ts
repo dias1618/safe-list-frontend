@@ -13,6 +13,10 @@ export class ListaService{
             return await this._listaController.update(lista);
     }
 
+    async get(id:number):Promise<ListaModel>{
+        return this._listaController.get(id);
+    }
+
     async getAll(){
         let listas = await this._listaController.getAll();
         let listasModel:ListaModel[] = [];

@@ -30,7 +30,7 @@ export class NovaListaComponent implements OnInit {
     try{
       await this._listaService.save(this.lista);
       this._toastr.success(`Lista incluída com sucesso`);
-      this._dialogRef.close();
+      this._dialogRef.close(this.lista);
     }
     catch(error){
       this._toastr.error(`${error.response.data.message}`);

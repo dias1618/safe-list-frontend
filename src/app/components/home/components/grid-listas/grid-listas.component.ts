@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListaModel } from 'src/app/models/lista.model';
 import { ListaService } from 'src/app/services/lista.service';
+import { ListaProvider } from 'src/app/providers/lista.provider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grid-listas',
@@ -12,11 +14,13 @@ export class GridListasComponent implements OnInit {
   listas:ListaModel[];
 
   constructor(
-    private _listaService:ListaService
+    public _listaProvider:ListaProvider,
+    private _listaService:ListaService,
+    private router:Router
   ) { }
 
   async ngOnInit(){
-    this.listas = await this._listaService.getAll();
+    this._listaProvider.listas = await this._listaService.getAll();
   }
 
   getHorario(lista:ListaModel){
@@ -25,6 +29,10 @@ export class GridListasComponent implements OnInit {
 
   getParticipantes(lista:ListaModel){
     return `${lista.participantes.length}/70`;
+  }
+
+  navigate(lista:ListaModel){
+    this.router.navigate([`../listas/${lista.id}`]);
   }
 
 }

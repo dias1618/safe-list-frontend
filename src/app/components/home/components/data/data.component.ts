@@ -20,6 +20,5 @@ export class DataComponent implements OnInit {
 
   changeData($event){
     this.diaSemana = this.diasSemanaEnum.getWeekDay(getDay($event.value));
-    console.log('dia = ', this.diaSemana)
   }
 }

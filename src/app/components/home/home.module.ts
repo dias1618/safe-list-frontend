@@ -14,20 +14,22 @@ import { GridListasComponent } from './components/grid-listas/grid-listas.compon
 import { ButtonAddComponent } from './components/button-add/button-add.component';
 import { NovaListaComponent } from '../modals/nova-lista/nova-lista.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { ListaProvider } from 'src/app/providers/lista.provider';
+
+let components = [
+  HomeComponent,
+  DataComponent,
+  GridListasComponent,
+  ButtonAddComponent,
+  NovaListaComponent,
+]
 
 @NgModule({
   entryComponents: [
-    DataComponent,
-    GridListasComponent,
-    NovaListaComponent,
+    ...components
   ],
   declarations: [
-    HomeComponent,
-    DataComponent,
-    GridListasComponent,
-    ButtonAddComponent,
-    NovaListaComponent,
-
+    ...components
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatDatepickerModule,
     MatNativeDateModule,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    DiasSemanaEnum
+    DiasSemanaEnum,
+    ListaProvider
   ],
 })
 export class HomeModule { }

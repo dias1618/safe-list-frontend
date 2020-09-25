@@ -5,7 +5,10 @@
     </mat-drawer>
     <mat-drawer-content>
         <div class="content">
-            
+            <h2>{{getTituloLista()}}</h2>
+            <app-table-participantes></app-table-participantes>
+            <h3>{{getResumo()}}</h3>
+            <app-button-add></app-button-add>
         </div>
     </mat-drawer-content>
 </mat-drawer-container>

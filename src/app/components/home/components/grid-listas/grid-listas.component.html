@@ -1,6 +1,6 @@
 <mat-grid-list cols="4" rowHeight="2:1">
-    <mat-grid-tile *ngFor="let lista of listas">
-        <mat-card fxFlex fxLayout="column" >
+    <mat-grid-tile *ngFor="let lista of _listaProvider.listas">
+        <mat-card fxFlex fxLayout="column" (click)="navigate(lista)" >
             <mat-card-header fxFlex fxLayout="column" >
                 <mat-card-subtitle class="info-header">{{getHorario(lista)}}</mat-card-subtitle>
             </mat-card-header>
