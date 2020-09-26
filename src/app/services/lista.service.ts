@@ -1,6 +1,7 @@
 import { ListaModel } from 'src/app/models/lista.model';
 import { ListaController } from 'src/app/controllers/lista.controller';
 import { DateTools } from 'src/shared/date.tools';
+import { ParticipanteModel } from '../models/participante.model';
 
 export class ListaService{
 
@@ -30,5 +31,9 @@ export class ListaService{
             listasModel.push(listaModel);
         }
         return listasModel;
+    }
+
+    async addParticipante(lista:ListaModel, participante:ParticipanteModel){
+        this._listaController.addParticipante(lista, participante);
     }
 }

@@ -1,6 +1,6 @@
 export class DateTools{
     static stringToTime(timeString:string){
-        return new Date(1970, 0, 1, Number(timeString.substr(0, 2)), Number(timeString.substr(3, 2)));
+        return new Date(timeString);
     }
 
     static timeToString(time:Date){

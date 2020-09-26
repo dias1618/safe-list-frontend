@@ -1,0 +1,19 @@
+:host{
+    table {
+        width: 100%;
+    }
+
+    .columnCadeira, .columnDependentes{
+        width: 100px;
+    }
+
+    .columnTelefone{
+        width: 200px;
+    }
+
+    .mat-row:hover {
+        background-color:#7C9CF7;
+        cursor: pointer;
+    }
+
+}

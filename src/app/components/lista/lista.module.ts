@@ -6,11 +6,19 @@ import { SharedModule } from 'src/shared/shared.module';
 import { ListaComponent } from './lista.component';
 import { TableParticipantesComponent } from './components/table-participantes/table-participantes.component';
 import { ButtonAddComponent } from './components/button-add/button-add.component';
+import { DiasSemanaEnum } from 'src/app/enums/dias-semana.enum';
+import { ResumoComponent } from './components/resumo/resumo.component';
+import { NovoParticipanteComponent } from '../modals/novo-participante/novo-participante.component';
+import { ParticipanteController } from 'src/app/controllers/participante.controller';
+import { ParticipanteService } from 'src/app/services/participante.service';
+import { ListaProvider } from 'src/app/providers/lista.provider';
 
 let components = [
   ListaComponent,
   TableParticipantesComponent,
   ButtonAddComponent,
+  ResumoComponent,
+  NovoParticipanteComponent
 ]
 
 @NgModule({
@@ -18,13 +26,18 @@ let components = [
     ...components
   ],
   declarations: [
-    ...components
+    ...components,
   ],
   imports: [
     CommonModule,
     ListaRoutingModule,
     SharedModule,
   ],
-  providers: []
+  providers: [
+    ListaProvider,
+    DiasSemanaEnum,
+    ParticipanteController,
+    ParticipanteService,
+  ]
 })
 export class ListaModule { }

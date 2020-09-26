@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonAddComponent } from './button-add.component';
+import { NovoParticipanteComponent } from './novo-participante.component';
 
-describe('ButtonAddComponent', () => {
-  let component: ButtonAddComponent;
-  let fixture: ComponentFixture<ButtonAddComponent>;
+describe('NovoParticipanteComponent', () => {
+  let component: NovoParticipanteComponent;
+  let fixture: ComponentFixture<NovoParticipanteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonAddComponent ]
+      declarations: [ NovoParticipanteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonAddComponent);
+    fixture = TestBed.createComponent(NovoParticipanteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

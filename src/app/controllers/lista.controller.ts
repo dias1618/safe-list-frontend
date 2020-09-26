@@ -1,6 +1,7 @@
 import { ListaModel } from 'src/app/models/lista.model';
 import axios from "axios";
 import { environment } from 'src/environments/environment';
+import { ParticipanteModel } from '../models/participante.model';
 
 export class ListaController{
 
@@ -12,6 +13,11 @@ export class ListaController{
 
     async update(lista:ListaModel){
         await axios.put<any>(`${environment.baseUrl}/listas`, lista.toJson(), environment.axiosConfig)
+            .then(value => lista = value.data)
+    }
+
+    async addParticipante(lista:ListaModel, participante:ParticipanteModel){
+        await axios.put<any>(`${environment.baseUrl}/listas/participante`, {lista: lista.toJson(), participante:participante}, environment.axiosConfig)
             .then(value => lista = value.data)
     }
 

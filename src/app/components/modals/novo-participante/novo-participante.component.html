@@ -1,0 +1,24 @@
+<div fxFlex fxLayout="column" fxLayoutGap="10px">
+    <mat-toolbar fxFlex color="primary">
+        <div class="header" fxFlex fxLayoutAlign="center center">
+            PARTICIPANTE
+        </div>
+    </mat-toolbar>
+
+    <div fxFlex fxLayout="column" class="modal-content">
+        <div fxFlex fxLayoutGap="10px">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput [(ngModel)]="participante.nome">
+            </mat-form-field>
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Telefone</mat-label>
+                <input matInput [(ngModel)]="participante.telefone">
+            </mat-form-field>
+        </div>
+        <div fxFlex fxLayoutAlign="end" fxLayoutGap="10px">
+            <button mat-raised-button color="accent" (click)="cancel()">Cancelar</button>
+            <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+        </div>
+    </div>
+</div>
