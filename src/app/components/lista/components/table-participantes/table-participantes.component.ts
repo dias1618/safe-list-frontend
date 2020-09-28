@@ -57,9 +57,7 @@ export class TableParticipantesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      console.log('result = ', result)
       if(result){
-        console.log('entou');
         let participanteSelecionado = new ParticipanteModel(result);
         for(let x = 0; x < this.lista.participantes.length; x++){
           if(participanteSelecionado.id == this.lista.participantes[x].id){

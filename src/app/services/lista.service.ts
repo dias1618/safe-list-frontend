@@ -1,13 +1,12 @@
 import { ListaModel } from 'src/app/models/lista.model';
 import { ListaController } from 'src/app/controllers/lista.controller';
-import { DateTools } from 'src/shared/date.tools';
 import { ParticipanteModel } from '../models/participante.model';
 
 export class ListaService{
 
     constructor(private _listaController:ListaController){}
 
-    async save(lista:ListaModel){
+    async save(lista:ListaModel):Promise<ListaModel>{
         if(lista.id == undefined || lista.id == 0)
             return await this._listaController.insert(lista);
         else
@@ -25,8 +24,8 @@ export class ListaService{
             let listaModel = new ListaModel({
                 id: lista['id'],
                 data: new Date(lista['data']),
-                horaInicial: DateTools.timeToString(new Date(lista['horaInicial'])),
-                horaFinal: DateTools.timeToString(new Date(lista['horaFinal'])),
+                horaInicial: new Date(lista['horaInicial']).toISOString(),
+                horaFinal: new Date(lista['horaFinal']).toISOString(),
             });
             listasModel.push(listaModel);
         }

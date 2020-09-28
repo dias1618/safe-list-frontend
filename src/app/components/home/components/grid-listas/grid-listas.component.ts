@@ -24,7 +24,13 @@ export class GridListasComponent implements OnInit {
   }
 
   getHorario(lista:ListaModel){
-    return `${lista.horaInicial} - ${lista.horaFinal}`;
+    return `${this.hourMinuteToString(lista.horaInicial)} - ${this.hourMinuteToString(lista.horaFinal)}`;
+  }
+
+  private hourMinuteToString(hourMinuteStr:string){
+    let hourMinute:Date = new Date(hourMinuteStr);
+    return  (hourMinute.getHours() > 9 ? hourMinute.getHours() : `0${hourMinute.getHours()}`) + ":" + 
+            (hourMinute.getMinutes() > 9 ? hourMinute.getMinutes() : `0${hourMinute.getMinutes()}`);
   }
 
   getParticipantes(lista:ListaModel){

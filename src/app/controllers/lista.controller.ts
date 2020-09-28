@@ -6,18 +6,18 @@ import { ParticipanteModel } from '../models/participante.model';
 export class ListaController{
 
 
-    async insert(lista:ListaModel){
-        await axios.post<any>(`${environment.baseUrl}/listas`, lista.toJson(), environment.axiosConfig)
+    async insert(lista:ListaModel):Promise<ListaModel>{
+        return await axios.post<any>(`${environment.baseUrl}/listas`, lista, environment.axiosConfig)
             .then(value => lista = value.data)
     }
 
-    async update(lista:ListaModel){
-        await axios.put<any>(`${environment.baseUrl}/listas`, lista.toJson(), environment.axiosConfig)
+    async update(lista:ListaModel):Promise<ListaModel>{
+        return await axios.put<any>(`${environment.baseUrl}/listas`, lista, environment.axiosConfig)
             .then(value => lista = value.data)
     }
 
     async addParticipante(lista:ListaModel, participante:ParticipanteModel){
-        await axios.put<any>(`${environment.baseUrl}/listas/participante`, {lista: lista.toJson(), participante:participante}, environment.axiosConfig)
+        await axios.put<any>(`${environment.baseUrl}/listas/participante`, {lista: lista, participante:participante}, environment.axiosConfig)
             .then(value => lista = value.data)
     }
 

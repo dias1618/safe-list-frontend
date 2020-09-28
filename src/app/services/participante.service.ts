@@ -1,6 +1,5 @@
 import { ParticipanteModel } from 'src/app/models/participante.model';
 import { ParticipanteController } from 'src/app/controllers/participante.controller';
-import { DateTools } from 'src/shared/date.tools';
 
 export class ParticipanteService{
 

@@ -1,4 +1,3 @@
-import { DateTools } from "../../shared/date.tools";
 import { ParticipanteModel } from './participante.model';
 
 export class ListaModel{
@@ -17,12 +16,4 @@ export class ListaModel{
         this.participantes = data && data.participantes || [];
     }
 
-    public toJson(){
-        return JSON.parse(`{
-            "id": ${this.id},
-            "data": "${this.data}",
-            "horaInicial": "${DateTools.stringToTime(this.horaInicial)}",
-            "horaFinal": "${DateTools.stringToTime(this.horaFinal)}"
-        }`);
-    }
 }

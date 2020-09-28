@@ -28,7 +28,9 @@ export class NovaListaComponent implements OnInit {
 
   async salvar(){
     try{
-      await this._listaService.save(this.lista);
+      this.lista.horaInicial = `1970-01-01T${this.lista.horaInicial}:00.000`;
+      this.lista.horaFinal = `1970-01-01T${this.lista.horaFinal}:00.000`;
+      this.lista = await this._listaService.save(this.lista);
       this._toastr.success(`Lista incluída com sucesso`);
       this._dialogRef.close(this.lista);
     }
