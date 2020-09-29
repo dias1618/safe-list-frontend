@@ -50,8 +50,8 @@ export class TableParticipantesComponent implements OnInit {
 
   callParticipante(participante:ParticipanteModel){
     const dialogRef = this.dialog.open(NovoParticipanteComponent, {
-      width: '50vw',
-      height: '80vh',
+      width: '40vw',
+      height: '85vh',
       panelClass: 'app-modal',
       data: {participante: participante}
     });

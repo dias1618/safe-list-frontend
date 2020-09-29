@@ -6,4 +6,38 @@
     .modal-content{
         margin: 10px;
     }
+
+    .titulo-dependentes{
+        font-size: 16px; 
+        font-weight: 500;
+    }
+
+    .grupo-dependentes{
+        overflow-y: auto; 
+        max-height: 160px;
+        
+    }
+
+    .button-dependente{
+        height: 60px;
+    }
+
+    .novo-dependente{
+        margin-top: 15px;
+    }
+
+    .button-dependente-icon{
+        width: 40px; 
+        height: 40px; 
+        font-size: 40px;
+    }
+
+    .resumo-dependentes{
+        font-size: 16px; 
+        font-weight: 300;
+    }
+
+    .botoes{
+        margin-top: 20px;
+    }
 }

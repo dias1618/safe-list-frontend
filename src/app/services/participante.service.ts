@@ -19,4 +19,12 @@ export class ParticipanteService{
     async getAll(){
         return await this._participanteController.getAll();
     }
+
+    async addDependente(participante:ParticipanteModel, dependente:ParticipanteModel){
+        this._participanteController.addDependente(participante, dependente);
+    }
+    
+    async remove(id:number):Promise<ParticipanteModel>{
+        return this._participanteController.remove(id);
+    }
 }

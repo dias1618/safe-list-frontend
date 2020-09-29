@@ -17,8 +17,7 @@ export class ListaController{
     }
 
     async addParticipante(lista:ListaModel, participante:ParticipanteModel){
-        await axios.put<any>(`${environment.baseUrl}/listas/participante`, {lista: lista, participante:participante}, environment.axiosConfig)
-            .then(value => lista = value.data)
+        await axios.put<any>(`${environment.baseUrl}/listas/participante`, {lista: lista, participante:participante}, environment.axiosConfig);
     }
 
     async get(id:number):Promise<ListaModel>{

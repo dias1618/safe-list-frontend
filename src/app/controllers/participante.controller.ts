@@ -6,13 +6,19 @@ export class ParticipanteController{
 
 
     async insert(participante:ParticipanteModel){
-        return await axios.post<ParticipanteModel>(`${environment.baseUrl}/participantes`, participante, environment.axiosConfig)
+        await axios.post<ParticipanteModel>(`${environment.baseUrl}/participantes`, participante, environment.axiosConfig)
             .then(value => participante = value.data)
+        return participante;
     }
 
     async update(participante:ParticipanteModel){
-        return await axios.put<ParticipanteModel>(`${environment.baseUrl}/participantes`, participante, environment.axiosConfig)
-            .then(value => participante = value.data)
+        await axios.put<ParticipanteModel>(`${environment.baseUrl}/participantes`, participante, environment.axiosConfig)
+            .then(value => participante = value.data);
+        return participante;
+    }
+
+    async addDependente(participante:ParticipanteModel, dependente:ParticipanteModel){
+        await axios.put<any>(`${environment.baseUrl}/participantes/dependente`, {participante:participante, dependente:dependente}, environment.axiosConfig);
     }
 
     async get(id:number):Promise<ParticipanteModel>{
@@ -28,4 +34,12 @@ export class ParticipanteController{
             .then(value => participantes = value.data);
         return participantes;
     }
+
+    async remove(id:number){
+        let participanteRemovido:ParticipanteModel;
+        await axios.delete<ParticipanteModel>(`${environment.baseUrl}/participantes/${id}`, environment.axiosConfig)
+            .then(value => participanteRemovido = value.data);
+        return participanteRemovido;
+    }
+
 }

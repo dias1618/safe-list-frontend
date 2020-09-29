@@ -12,6 +12,7 @@ import { ParticipanteService } from 'src/app/services/participante.service';
 export class NovoParticipanteComponent implements OnInit {
 
   participante: ParticipanteModel;
+  novoDependente:ParticipanteModel;
 
   constructor(
     private _participanteService:ParticipanteService,
@@ -21,10 +22,11 @@ export class NovoParticipanteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.novoDependente = new ParticipanteModel();
     if(!this.data['participante'])
       this.participante = new ParticipanteModel();
     else
-      this.participante = new ParticipanteModel(this.data['participante'].toJson());
+      this.participante = new ParticipanteModel(this.data['participante']);
   }
 
   async salvar(){
@@ -37,6 +39,18 @@ export class NovoParticipanteComponent implements OnInit {
       console.log(error)
       this._toastr.error(`${error.response.data.message}`);
     }
+  }
+
+  async adicionarDependente(){
+    this.novoDependente = await this._participanteService.save(this.novoDependente);
+    this.participante.dependentes.push(this.novoDependente);
+    await this._participanteService.addDependente(new ParticipanteModel(this.participante), this.novoDependente);
+    this.novoDependente = new ParticipanteModel();
+  }
+
+  async removerDependente(id:number, index:number){
+    await this._participanteService.remove(id);
+    this.participante.dependentes.splice(index);
   }
 
   cancel(): void {

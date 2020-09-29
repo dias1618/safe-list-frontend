@@ -11,12 +11,31 @@
                 <mat-label>Nome</mat-label>
                 <input matInput [(ngModel)]="participante.nome">
             </mat-form-field>
-            <mat-form-field fxFlex appearance="outline">
+            <mat-form-field fxFlex="150px" appearance="outline">
                 <mat-label>Telefone</mat-label>
                 <input matInput [(ngModel)]="participante.telefone">
             </mat-form-field>
         </div>
-        <div fxFlex fxLayoutAlign="end" fxLayoutGap="10px">
+        <label class="titulo-dependentes" fxFlex fxLayoutAlign="start center">Dependentes</label>
+        <div id="grupoDependentes" class="grupo-dependentes" fxLayout="column">
+            <div *ngFor="let dependente of participante.dependentes; let i = index" fxFlex fxLayout="column">
+                <div fxFlex fxLayout="row">
+                    <input matInput [(ngModel)]="dependente.nome" readonly="true">
+                    <button class="button-dependente" fxFlex="60px" mat-button color="accent" (click)="removerDependente(dependente.id, i)" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">delete</mat-icon></button>
+                </div>
+            </div>
+        </div>
+        <div class="novo-dependente" fxFlex fxLayoutGap="10px">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Digite o nome do dependente</mat-label>
+                <input matInput [(ngModel)]="novoDependente.nome">
+            </mat-form-field>
+            <button class="button-dependente" fxFlex="60px" mat-button color="primary" (click)="adicionarDependente()" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">add</mat-icon></button>
+        </div>
+        <div fxFlex fxLayout="row">
+            <label class="resumo-dependentes" fxFlex fxLayoutAlign="start center">{{participante.dependentes.length}} dependentes</label>
+        </div>
+        <div class="botoes" fxFlex fxLayoutAlign="end" fxLayoutGap="10px">
             <button mat-raised-button color="accent" (click)="cancel()">Cancelar</button>
             <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
         </div>
