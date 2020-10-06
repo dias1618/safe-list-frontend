@@ -4,11 +4,9 @@
         <side-nav></side-nav>
     </mat-drawer>
     <mat-drawer-content>
-        <div class="content" fxLayoutGap="10px">
-            <h2>{{getTituloLista()}}</h2>
-            <app-table-participantes></app-table-participantes>
-            <app-resumo></app-resumo>
-            <app-button-voltar></app-button-voltar>
+        <div class="content">
+            <app-grid-bancos></app-grid-bancos>
+            <app-button-add-all></app-button-add-all>
             <app-button-add></app-button-add>
         </div>
     </mat-drawer-content>

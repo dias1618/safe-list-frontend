@@ -1,0 +1,16 @@
+<mat-grid-list cols="4" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let banco of _bancoProvider.bancos">
+        <mat-card fxFlex fxLayout="column" (click)="navigate(banco)" >
+            <mat-card-header fxFlex fxLayout="column" >
+                <mat-card-subtitle class="info-header">{{getNumero(banco)}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <div class="info-title">{{getCadeiras(banco)}}</div>
+                <div class="info-subtitle">lugares</div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<div *ngIf="_bancoProvider.bancos.length == 0">
+    <p class="rotulo-nenhum">Nenhum banco cadastrado</p>
+</div>

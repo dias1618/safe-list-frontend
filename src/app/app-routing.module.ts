@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () => import('./components/lista/lista.module').then(m=>m.ListaModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'lugares',
+    loadChildren: () => import('./components/lugares/lugares.module').then(m=>m.LugaresModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

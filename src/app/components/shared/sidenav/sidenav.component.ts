@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'side-nav',
@@ -7,17 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   callPrincipal($event){
-    alert('principal')
+    this.router.navigate(['/home']);
   }
 
   callUsuarios($event){
     alert('usuarios')
+  }
+
+  callLugares($event){
+    this.router.navigate(['/lugares']);
   }
 
   callConfiguracoes($event){

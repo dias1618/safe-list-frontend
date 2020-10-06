@@ -12,6 +12,7 @@ import { NovoParticipanteComponent } from '../modals/novo-participante/novo-part
 import { ParticipanteController } from 'src/app/controllers/participante.controller';
 import { ParticipanteService } from 'src/app/services/participante.service';
 import { ListaProvider } from 'src/app/providers/lista.provider';
+import { ButtonVoltarComponent } from './components/button-voltar/button-voltar.component';
 
 let components = [
   ListaComponent,
@@ -27,6 +28,7 @@ let components = [
   ],
   declarations: [
     ...components,
+    ButtonVoltarComponent,
   ],
   imports: [
     CommonModule,
