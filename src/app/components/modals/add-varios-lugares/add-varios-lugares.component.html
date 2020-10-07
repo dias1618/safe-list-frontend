@@ -1,0 +1,20 @@
+<div fxFlex fxLayout="column" fxLayoutGap="10px">
+    <mat-toolbar fxFlex color="primary">
+        <div class="header" fxFlex fxLayoutAlign="center center">
+            ADICIONAR VÁRIOS LUGARES
+        </div>
+    </mat-toolbar>
+
+    <div fxFlex fxLayout="column" class="modal-content">
+        <div fxFlex fxLayoutGap="10px">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Quantidade de Lugares</mat-label>
+                <input matInput [(ngModel)]="quantidade">
+            </mat-form-field>
+        </div>
+        <div class="botoes" fxFlex fxLayoutAlign="end" fxLayoutGap="10px">
+            <button mat-raised-button color="accent" (click)="cancel()">Cancelar</button>
+            <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+        </div>
+    </div>
+</div>

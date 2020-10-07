@@ -5,6 +5,11 @@ import { CadeiraModel } from '../models/cadeira.model';
 
 export class BancoController{
 
+    async saveMany(quantidade:number):Promise<void>{
+        return await axios.post<any>(`${environment.baseUrl}/bancos/many`, {quantidade: quantidade}, environment.axiosConfig)
+            .then(value => {})
+    }
+
     async insert(banco:BancoModel):Promise<BancoModel>{
         return await axios.post<any>(`${environment.baseUrl}/bancos`, banco, environment.axiosConfig)
             .then(value => banco = value.data)

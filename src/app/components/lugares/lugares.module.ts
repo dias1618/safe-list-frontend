@@ -13,6 +13,7 @@ import { BancoProvider } from 'src/app/providers/banco.provider';
 import { NovoBancoComponent } from '../modals/novo-banco/novo-banco.component';
 import { CadeiraService } from 'src/app/services/cadeira.service';
 import { CadeiraController } from 'src/app/controllers/cadeira.controller';
+import { AddVariosLugaresComponent } from '../modals/add-varios-lugares/add-varios-lugares.component';
 
 
 let components = [
@@ -20,7 +21,8 @@ let components = [
   GridBancosComponent,
   ButtonAddComponent,
   ButtonAddAllComponent,
-  NovoBancoComponent
+  NovoBancoComponent,
+  AddVariosLugaresComponent,
 ]
 
 @NgModule({

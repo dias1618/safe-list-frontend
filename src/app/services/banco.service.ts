@@ -12,6 +12,10 @@ export class BancoService{
             return await this._bancoController.update(banco);
     }
 
+    async saveMany(quantidade:number):Promise<void>{
+        return await this._bancoController.saveMany(quantidade);
+    }
+
     async get(id:number):Promise<BancoModel>{
         return this._bancoController.get(id);
     }
