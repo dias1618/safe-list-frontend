@@ -17,8 +17,8 @@ export class ListaService{
         return this._listaController.get(id);
     }
 
-    async getAll(){
-        let listas = await this._listaController.getAll();
+    async getByDate(date:Date){
+        let listas = await this._listaController.getByDate(date);
         let listasModel:ListaModel[] = [];
         for(let lista of listas){
             let listaModel = new ListaModel({

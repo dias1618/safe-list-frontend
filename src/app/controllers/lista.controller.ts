@@ -27,9 +27,9 @@ export class ListaController{
         return lista;
     }
 
-    async getAll():Promise<ListaModel[]>{
+    async getByDate(date:Date):Promise<ListaModel[]>{
         let listas:[];
-        await axios.get<any>(`${environment.baseUrl}/listas`, environment.axiosConfig)
+        await axios.get<any>(`${environment.baseUrl}/listas?date=${date.toISOString()}`, environment.axiosConfig)
             .then(value => listas = value.data);
         return listas;
     }

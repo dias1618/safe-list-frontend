@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
 })
 export class GridListasComponent implements OnInit {
 
-  listas:ListaModel[];
-
   constructor(
     public _listaProvider:ListaProvider,
     private _listaService:ListaService,
@@ -20,7 +18,7 @@ export class GridListasComponent implements OnInit {
   ) { }
 
   async ngOnInit(){
-    this._listaProvider.listas = await this._listaService.getAll();
+    this._listaProvider.listas = await this._listaService.getByDate(new Date());
   }
 
   getHorario(lista:ListaModel){
