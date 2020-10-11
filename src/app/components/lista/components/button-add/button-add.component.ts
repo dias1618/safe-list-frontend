@@ -29,7 +29,7 @@ export class ButtonAddComponent implements OnInit {
 
   addParticipante($event){
     const dialogRef = this.dialog.open(NovoParticipanteComponent, {
-      width: '40vw',
+      width: '80vw',
       height: '85vh',
       panelClass: 'app-modal',
       data: {participante: new ParticipanteModel()}

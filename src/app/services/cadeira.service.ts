@@ -1,5 +1,6 @@
 import { CadeiraModel } from 'src/app/models/cadeira.model';
 import { CadeiraController } from 'src/app/controllers/cadeira.controller';
+import { ParticipanteModel } from '../models/participante.model';
 export class CadeiraService{
 
     constructor(private _cadeiraController:CadeiraController){}
@@ -24,7 +25,7 @@ export class CadeiraService{
         }
         return cadeirasModel;
     }
-
+    
     async remove(id:number):Promise<CadeiraModel>{
         return this._cadeiraController.remove(id);
     }

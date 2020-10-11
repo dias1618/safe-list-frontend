@@ -1,0 +1,11 @@
+<app-header></app-header>
+<mat-drawer-container class="container">
+    <mat-drawer style="background-color: black;" mode="side" opened>
+        <side-nav></side-nav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="content">
+            <app-nome [participante]="participante"></app-nome>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

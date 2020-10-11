@@ -1,6 +1,7 @@
 import { ParticipanteModel } from 'src/app/models/participante.model';
 import axios from "axios";
 import { environment } from 'src/environments/environment';
+import { CadeiraModel } from '../models/cadeira.model';
 
 export class ParticipanteController{
 
@@ -19,6 +20,10 @@ export class ParticipanteController{
 
     async addDependente(participante:ParticipanteModel, dependente:ParticipanteModel){
         await axios.put<any>(`${environment.baseUrl}/participantes/dependente`, {participante:participante, dependente:dependente}, environment.axiosConfig);
+    }
+
+    async addCadeira(participante:ParticipanteModel, cadeira:CadeiraModel){
+        await axios.put<any>(`${environment.baseUrl}/participantes/cadeira`, {participante:participante, cadeira:cadeira}, environment.axiosConfig);
     }
 
     async get(id:number):Promise<ParticipanteModel>{

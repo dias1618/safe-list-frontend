@@ -16,25 +16,51 @@
                 <input matInput [(ngModel)]="participante.telefone">
             </mat-form-field>
         </div>
-        <label class="titulo-dependentes" fxFlex fxLayoutAlign="start center">Dependentes</label>
-        <mat-divider class="separador"></mat-divider>
-        <div id="grupoDependentes" class="grupo-dependentes" fxLayout="column">
-            <div *ngFor="let dependente of participante.dependentes; let i = index" fxFlex fxLayout="column">
+        <div fxFlex fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex fxLayout="column">
+                <label class="titulo-dependentes" fxFlex fxLayoutAlign="start center">Dependentes</label>
+                <mat-divider class="separador"></mat-divider>
+                <div id="grupoDependentes" class="grupo-dependentes" fxLayout="column">
+                    <div *ngFor="let dependente of participante.dependentes; let i = index" fxFlex fxLayout="column">
+                        <div fxFlex fxLayout="row">
+                            <input matInput [(ngModel)]="dependente.nome" readonly="true">
+                            <button class="button-dependente" fxFlex="60px" mat-button color="accent" (click)="removerDependente(dependente.id, i)" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">delete</mat-icon></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="novo-dependente" fxFlex fxLayoutGap="5px">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Adicione um dependente</mat-label>
+                        <input matInput [(ngModel)]="novoDependente.nome">
+                    </mat-form-field>
+                    <button class="button-dependente" fxFlex="60px" mat-button color="primary" (click)="adicionarDependente()" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">add</mat-icon></button>
+                </div>
                 <div fxFlex fxLayout="row">
-                    <input matInput [(ngModel)]="dependente.nome" readonly="true">
-                    <button class="button-dependente" fxFlex="60px" mat-button color="accent" (click)="removerDependente(dependente.id, i)" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">delete</mat-icon></button>
+                    <label class="resumo-dependentes" fxFlex fxLayoutAlign="start center">{{participante.dependentes ? participante.dependentes.length : 0}} dependentes</label>
                 </div>
             </div>
-        </div>
-        <div class="novo-dependente" fxFlex fxLayoutGap="5px">
-            <mat-form-field fxFlex appearance="outline">
-                <mat-label>Digite o nome do dependente</mat-label>
-                <input matInput [(ngModel)]="novoDependente.nome">
-            </mat-form-field>
-            <button class="button-dependente" fxFlex="60px" mat-button color="primary" (click)="adicionarDependente()" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">add</mat-icon></button>
-        </div>
-        <div fxFlex fxLayout="row">
-            <label class="resumo-dependentes" fxFlex fxLayoutAlign="start center">{{participante.dependentes.length}} dependentes</label>
+            <div fxFlex fxLayout="column">
+                <label class="titulo-dependentes" fxFlex fxLayoutAlign="start center">Cadeiras</label>
+                <mat-divider class="separador"></mat-divider>
+                <div id="grupoCadeiras" class="grupo-dependentes" fxLayout="column">
+                    <div *ngFor="let cadeira of participante.cadeiras; let i = index" fxFlex fxLayout="column">
+                        <div fxFlex fxLayout="row">
+                            <input matInput [(ngModel)]="cadeira.numero" readonly="true">
+                            <button class="button-dependente" fxFlex="60px" mat-button color="accent" (click)="removerCadeira(cadeira.id, i)" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">delete</mat-icon></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="novo-dependente" fxFlex fxLayoutGap="5px">
+                    <mat-form-field fxFlex appearance="outline">
+                        <mat-label>Adicione uma cadeira</mat-label>
+                        <input matInput [(ngModel)]="novaCadeira.numero">
+                    </mat-form-field>
+                    <button class="button-dependente" fxFlex="60px" mat-button color="primary" (click)="adicionarCadeira()" fxLayoutAlign="center center"><mat-icon class="button-dependente-icon">add</mat-icon></button>
+                </div>
+                <div fxFlex fxLayout="row">
+                    <label class="resumo-dependentes" fxFlex fxLayoutAlign="start center">{{participante.cadeiras ? participante.cadeiras.length : 0}} cadeiras</label>
+                </div>
+            </div>
         </div>
         <div class="botoes" fxFlex fxLayoutAlign="end" fxLayoutGap="10px">
             <button mat-raised-button color="accent" (click)="cancel()">Cancelar</button>

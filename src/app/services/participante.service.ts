@@ -1,5 +1,6 @@
 import { ParticipanteModel } from 'src/app/models/participante.model';
 import { ParticipanteController } from 'src/app/controllers/participante.controller';
+import { CadeiraModel } from '../models/cadeira.model';
 
 export class ParticipanteService{
 
@@ -22,6 +23,10 @@ export class ParticipanteService{
 
     async addDependente(participante:ParticipanteModel, dependente:ParticipanteModel){
         this._participanteController.addDependente(participante, dependente);
+    }
+    
+    async addCadeira(participante:ParticipanteModel, cadeira:CadeiraModel){
+        this._participanteController.addCadeira(participante, cadeira);
     }
     
     async remove(id:number):Promise<ParticipanteModel>{

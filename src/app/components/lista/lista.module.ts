@@ -13,6 +13,8 @@ import { ParticipanteController } from 'src/app/controllers/participante.control
 import { ParticipanteService } from 'src/app/services/participante.service';
 import { ListaProvider } from 'src/app/providers/lista.provider';
 import { ButtonVoltarComponent } from './components/button-voltar/button-voltar.component';
+import { CadeiraController } from 'src/app/controllers/cadeira.controller';
+import { CadeiraService } from 'src/app/services/cadeira.service';
 
 let components = [
   ListaComponent,
@@ -40,6 +42,8 @@ let components = [
     DiasSemanaEnum,
     ParticipanteController,
     ParticipanteService,
+    CadeiraController,
+    CadeiraService
   ]
 })
 export class ListaModule { }

@@ -1,6 +1,7 @@
 import { CadeiraModel } from 'src/app/models/cadeira.model';
 import axios from "axios";
 import { environment } from 'src/environments/environment';
+import { ParticipanteModel } from '../models/participante.model';
 
 export class CadeiraController{
 
