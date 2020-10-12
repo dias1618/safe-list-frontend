@@ -25,7 +25,7 @@ export class GridBancosComponent implements OnInit {
   }
 
   getNumero(banco:BancoModel){
-    return `${banco.numero}`;
+    return `${banco.identificacao}`;
   }
 
   getCadeiras(banco:BancoModel){

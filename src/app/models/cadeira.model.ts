@@ -1,9 +1,9 @@
 export class CadeiraModel{
     id:number;
-    numero:number;
+    identificacao:string;
 
-    constructor(data?:{id?:number, numero?:number}){
+    constructor(data?:{id?:number, identificacao?:string}){
         this.id = data && data.id || 0;
-        this.numero = data && data.numero || 0;
+        this.identificacao = data && data.identificacao || '';
     }
 }

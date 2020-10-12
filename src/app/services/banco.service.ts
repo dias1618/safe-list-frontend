@@ -33,4 +33,8 @@ export class BancoService{
     async addCadeira(banco:BancoModel, cadeira:CadeiraModel){
         this._bancoController.addCadeira(banco, cadeira);
     }
+
+    async removeAll(){
+        this._bancoController.removeAll();
+    }
 }

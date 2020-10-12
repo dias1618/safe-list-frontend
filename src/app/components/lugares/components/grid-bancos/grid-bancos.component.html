@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" rowHeight="2:1">
+<mat-grid-list *ngIf="_bancoProvider.bancos.length > 0" cols="4" rowHeight="2:1">
     <mat-grid-tile *ngFor="let banco of _bancoProvider.bancos">
         <mat-card fxFlex fxLayout="column" (click)="navigate(banco)" >
             <mat-card-header fxFlex fxLayout="column" >

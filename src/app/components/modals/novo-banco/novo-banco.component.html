@@ -9,7 +9,7 @@
         <div fxFlex fxLayoutGap="10px">
             <mat-form-field fxFlex appearance="outline">
                 <mat-label>Número</mat-label>
-                <input matInput [(ngModel)]="banco.numero">
+                <input matInput [(ngModel)]="banco.identificacao">
             </mat-form-field>
         </div>
         <label class="titulo-cadeiras" fxFlex fxLayoutAlign="start center">Cadeiras</label>
@@ -17,15 +17,15 @@
         <div id="grupoCadeiras" class="grupo-cadeiras" fxLayout="column">
             <div *ngFor="let cadeira of banco.cadeiras; let i = index" fxFlex fxLayout="column">
                 <div fxFlex fxLayout="row">
-                    <input matInput [(ngModel)]="cadeira.numero" readonly="true">
+                    <input matInput [(ngModel)]="cadeira.identificacao" readonly="true">
                     <button class="button-cadeira" fxFlex="60px" mat-button color="accent" (click)="removerCadeira(cadeira.id, i)" fxLayoutAlign="center center"><mat-icon class="button-cadeira-icon">delete</mat-icon></button>
                 </div>
             </div>
         </div>
         <div class="novo-cadeira" fxFlex fxLayoutGap="5px">
             <mat-form-field fxFlex appearance="outline">
-                <mat-label>Digite o numero do cadeira</mat-label>
-                <input matInput [(ngModel)]="novoCadeira.numero">
+                <mat-label>Digite a identificação do cadeira</mat-label>
+                <input matInput [(ngModel)]="novoCadeira.identificacao">
             </mat-form-field>
             <button class="button-cadeira" fxFlex="60px" mat-button color="primary" (click)="adicionarCadeira()" fxLayoutAlign="center center"><mat-icon class="button-cadeira-icon">add</mat-icon></button>
         </div>

@@ -73,7 +73,7 @@ export class TableParticipantesComponent implements OnInit {
   getCadeiras(participante:ParticipanteModel){
     let numerosCadeiras:string = '';
     for(let cadeira of participante.cadeiras){
-      numerosCadeiras += `${cadeira.numero}, `;
+      numerosCadeiras += `${cadeira.identificacao}, `;
     }
 
     return numerosCadeiras.substring(0, numerosCadeiras.length-2);

@@ -14,7 +14,11 @@ import { NovoBancoComponent } from '../modals/novo-banco/novo-banco.component';
 import { CadeiraService } from 'src/app/services/cadeira.service';
 import { CadeiraController } from 'src/app/controllers/cadeira.controller';
 import { AddVariosLugaresComponent } from '../modals/add-varios-lugares/add-varios-lugares.component';
-
+import { ButtonRemoveAllComponent } from './components/button-remove-all/button-remove-all.component';
+import { ConfirmDialog } from 'src/app/tools/confirm-dialog';
+import { DialogFactory } from 'src/app/tools/dialog-factory';
+import { AlertDialog } from 'src/app/tools/alert-dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 let components = [
   LugaresComponent,
@@ -23,6 +27,9 @@ let components = [
   ButtonAddAllComponent,
   NovoBancoComponent,
   AddVariosLugaresComponent,
+  ButtonRemoveAllComponent,
+  ConfirmDialog,
+  AlertDialog
 ]
 
 @NgModule({
@@ -43,6 +50,8 @@ let components = [
     BancoService,
     CadeiraService,
     CadeiraController,
+    DialogFactory,
+    MatSnackBar
   ]
 })
 export class LugaresModule { }
