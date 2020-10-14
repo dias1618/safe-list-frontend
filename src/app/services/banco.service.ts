@@ -17,7 +17,7 @@ export class BancoService{
     }
 
     async get(id:number):Promise<BancoModel>{
-        return this._bancoController.get(id);
+        return await this._bancoController.get(id);
     }
 
     async getAll(){
@@ -31,10 +31,14 @@ export class BancoService{
     }
 
     async addCadeira(banco:BancoModel, cadeira:CadeiraModel){
-        this._bancoController.addCadeira(banco, cadeira);
+        await this._bancoController.addCadeira(banco, cadeira);
+    }
+
+    async remove(banco:BancoModel){
+        await this._bancoController.remove(banco);
     }
 
     async removeAll(){
-        this._bancoController.removeAll();
+        await this._bancoController.removeAll();
     }
 }

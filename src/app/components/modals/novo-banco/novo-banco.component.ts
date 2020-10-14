@@ -36,11 +36,10 @@ export class NovoBancoComponent implements OnInit {
     try{
       this.banco = await this._bancoService.save(this.banco);
       this._toastr.success(`Banco incluído com sucesso`);
-      this._dialogRef.close(this.banco);
+      this._dialogRef.close({banco: this.banco, remove: false});
     }
     catch(error){
-      console.log(error)
-      this._toastr.error(`${error.response.data.message}`);
+      this._toastr.error(`${error.response.data.mensagem}`);
     }
   }
 
@@ -56,7 +55,14 @@ export class NovoBancoComponent implements OnInit {
     this.banco.cadeiras.splice(index);
   }
 
-  cancel(): void {
-    this._dialogRef.close();
+  async remover() {
+    try{
+      await this._bancoService.remove(this.banco);
+      this._toastr.success(`Banco removido com sucesso`);
+      this._dialogRef.close({banco: this.banco, remove: true});
+    }
+    catch(error){
+      this._toastr.error(`${error.response.data.mensagem}`);
+    }
   }
 }

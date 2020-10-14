@@ -38,6 +38,10 @@ export class BancoController{
         await axios.put<any>(`${environment.baseUrl}/bancos/cadeira`, {banco: banco, cadeira:cadeira}, environment.axiosConfig);
     }
 
+    async remove(banco:BancoModel){
+        await axios.delete<BancoModel>(`${environment.baseUrl}/bancos/${banco.id}`, environment.axiosConfig);
+    }
+
     async removeAll(){
         await axios.delete<any>(`${environment.baseUrl}/bancos`, environment.axiosConfig);
     }

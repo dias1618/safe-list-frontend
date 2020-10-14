@@ -41,8 +41,23 @@ export class GridBancosComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result)
-        this._bancoProvider.bancos.push(result);
+      if(result && !result.remove){
+        for(let index=0; index<this._bancoProvider.bancos.length; index++){
+          if(result.banco.id == this._bancoProvider.bancos[index].id){
+            this._bancoProvider.bancos[index] = result.banco;
+            break;
+          }
+        }
+      }
+      else if(result && result.remove){
+        for(let index=0; index<this._bancoProvider.bancos.length; index++){
+          if(result.banco.id == this._bancoProvider.bancos[index].id){
+            this._bancoProvider.bancos.splice(index, 1);
+            break;
+          }
+        }
+        
+      }
     });
   }
 
