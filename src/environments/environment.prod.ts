@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://dias1618.host/safelist/api',
+  baseUrl: 'https://dias1618.host/safelist',
   axiosConfig: { headers: {
       common: {
           "Cache-Control": "no-cache, no-store, must-revalidate",
