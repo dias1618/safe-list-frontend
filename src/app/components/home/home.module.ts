@@ -16,6 +16,7 @@ import { NovaListaComponent } from '../modals/nova-lista/nova-lista.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { ListaProvider } from 'src/app/providers/lista.provider';
 import { ListaService } from 'src/app/services/lista.service';
+import { ListaController } from 'src/app/controllers/lista.controller';
 
 let components = [
   HomeComponent,
@@ -46,7 +47,6 @@ let components = [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     DiasSemanaEnum,
     ListaProvider,
-    ListaService
   ],
 })
 export class HomeModule { }

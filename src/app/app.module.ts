@@ -29,8 +29,6 @@ import { ListaController } from 'src/app/controllers/lista.controller';
     NgxMaterialTimepickerModule.setLocale('pt-BR')
   ],
   providers: [
-    ListaController,
-    ListaService
   ],
   bootstrap: [AppComponent]
 })
