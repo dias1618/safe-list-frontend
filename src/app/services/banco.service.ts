@@ -1,6 +1,9 @@
 import { BancoModel } from 'src/app/models/banco.model';
 import { BancoController } from 'src/app/controllers/banco.controller';
 import { CadeiraModel } from '../models/cadeira.model';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class BancoService{
 
     constructor(private _bancoController:BancoController){}

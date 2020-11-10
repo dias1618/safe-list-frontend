@@ -1,6 +1,9 @@
 import { CadeiraModel } from 'src/app/models/cadeira.model';
 import { CadeiraController } from 'src/app/controllers/cadeira.controller';
 import { ParticipanteModel } from '../models/participante.model';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class CadeiraService{
 
     constructor(private _cadeiraController:CadeiraController){}

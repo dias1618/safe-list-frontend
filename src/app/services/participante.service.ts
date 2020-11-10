@@ -1,7 +1,9 @@
 import { ParticipanteModel } from 'src/app/models/participante.model';
 import { ParticipanteController } from 'src/app/controllers/participante.controller';
 import { CadeiraModel } from '../models/cadeira.model';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ParticipanteService{
 
     constructor(private _participanteController:ParticipanteController){}

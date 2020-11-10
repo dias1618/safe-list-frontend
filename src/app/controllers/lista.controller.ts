@@ -2,7 +2,9 @@ import { ListaModel } from 'src/app/models/lista.model';
 import axios from "axios";
 import { environment } from 'src/environments/environment';
 import { ParticipanteModel } from '../models/participante.model';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ListaController{
 
 

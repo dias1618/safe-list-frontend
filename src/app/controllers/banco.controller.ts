@@ -2,7 +2,9 @@ import { BancoModel } from 'src/app/models/banco.model';
 import axios from "axios";
 import { environment } from 'src/environments/environment';
 import { CadeiraModel } from '../models/cadeira.model';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class BancoController{
 
     async saveMany(quantidade:number):Promise<void>{

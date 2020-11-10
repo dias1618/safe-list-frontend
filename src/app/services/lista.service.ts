@@ -1,7 +1,9 @@
 import { ListaModel } from 'src/app/models/lista.model';
 import { ListaController } from 'src/app/controllers/lista.controller';
 import { ParticipanteModel } from '../models/participante.model';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ListaService{
 
     constructor(private _listaController:ListaController){}

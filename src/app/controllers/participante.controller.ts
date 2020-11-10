@@ -2,7 +2,9 @@ import { ParticipanteModel } from 'src/app/models/participante.model';
 import axios from "axios";
 import { environment } from 'src/environments/environment';
 import { CadeiraModel } from '../models/cadeira.model';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ParticipanteController{
 
 
