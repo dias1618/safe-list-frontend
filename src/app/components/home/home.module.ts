@@ -47,6 +47,8 @@ let components = [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     DiasSemanaEnum,
     ListaProvider,
+    ListaController,
+    ListaService
   ],
 })
 export class HomeModule { }
