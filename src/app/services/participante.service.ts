@@ -9,8 +9,9 @@ export class ParticipanteService{
     constructor(private _participanteController:ParticipanteController){}
 
     async save(participante:ParticipanteModel):Promise<ParticipanteModel>{
-        if(participante.id == undefined || participante.id == 0)
+        if(participante.id == undefined || participante.id == 0){
             return await this._participanteController.insert(participante);
+        }
         else
             return await this._participanteController.update(participante);
     }

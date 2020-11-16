@@ -3,6 +3,7 @@ import { ListaModel } from 'src/app/models/lista.model';
 import { ListaService } from 'src/app/services/lista.service';
 import { ListaProvider } from 'src/app/providers/lista.provider';
 import { Router } from '@angular/router';
+import { Configuracoes } from 'src/app/providers/configuracoes.provider';
 
 @Component({
   selector: 'app-grid-listas',
@@ -14,7 +15,8 @@ export class GridListasComponent implements OnInit {
   constructor(
     public _listaProvider:ListaProvider,
     private _listaService:ListaService,
-    private router:Router
+    private router:Router,
+    private configuracoes:Configuracoes
   ) { }
 
   async ngOnInit(){
@@ -32,7 +34,7 @@ export class GridListasComponent implements OnInit {
   }
 
   getParticipantes(lista:ListaModel){
-    return `${lista.participantes.length}/70`;
+    return `${this._listaProvider.somatorioParticipantes(lista)}/${this.configuracoes.maxParticipantes}`;
   }
 
   navigate(lista:ListaModel){

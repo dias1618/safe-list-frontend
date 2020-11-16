@@ -15,6 +15,14 @@ import { ListaProvider } from 'src/app/providers/lista.provider';
 import { ButtonVoltarComponent } from './components/button-voltar/button-voltar.component';
 import { CadeiraController } from 'src/app/controllers/cadeira.controller';
 import { CadeiraService } from 'src/app/services/cadeira.service';
+import { Configuracoes } from 'src/app/providers/configuracoes.provider';
+import { MaximoParticipantesValidator } from 'src/app/validators/maximo-participantes.validator';
+import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
+import { ParticipanteValidator } from 'src/app/validators/participante.validator';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+ 
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+ 
 
 let components = [
   ListaComponent,
@@ -36,6 +44,7 @@ let components = [
     CommonModule,
     ListaRoutingModule,
     SharedModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     ListaProvider,
@@ -43,7 +52,11 @@ let components = [
     ParticipanteController,
     ParticipanteService,
     CadeiraController,
-    CadeiraService
+    CadeiraService,
+    Configuracoes,
+    ParticipanteValidator,
+    MaximoParticipantesValidator,
+    TratamentoErroService
   ]
 })
 export class ListaModule { }

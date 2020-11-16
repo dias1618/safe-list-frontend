@@ -4,7 +4,10 @@ import { ToastrService } from 'ngx-toastr';
 import { ParticipanteModel } from 'src/app/models/participante.model';
 import { ParticipanteService } from 'src/app/services/participante.service';
 import { CadeiraModel } from 'src/app/models/cadeira.model';
-import { CadeiraService } from 'src/app/services/cadeira.service';
+import { MaximoParticipantesValidator } from 'src/app/validators/maximo-participantes.validator';
+import { ListaModel } from 'src/app/models/lista.model';
+import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
+import { ParticipanteValidator } from 'src/app/validators/participante.validator';
 
 @Component({
   selector: 'app-novo-participante',
@@ -19,55 +22,51 @@ export class NovoParticipanteComponent implements OnInit {
 
   constructor(
     private _participanteService:ParticipanteService,
-    private _cadeiraService:CadeiraService,
     private _dialogRef: MatDialogRef<NovoParticipanteComponent>,
     private _toastr: ToastrService,
+    private maximoParticipantesValidator: MaximoParticipantesValidator,
+    private participanteValidator: ParticipanteValidator,
+    private tratamentoErroService:TratamentoErroService,
     @Inject(MAT_DIALOG_DATA) public data: ParticipanteModel
   ) { }
 
   ngOnInit(): void {
     this.novoDependente = new ParticipanteModel();
     this.novaCadeira = new CadeiraModel();
-    if(!this.data['participante'])
-      this.participante = new ParticipanteModel();
-    else
-      this.participante = new ParticipanteModel(this.data['participante']);
+    this.participante = new ParticipanteModel(this.data['participante']);
   }
 
   async salvar(){
     try{
+      this.validate(this.participante);
       this.participante.id = (await this._participanteService.save(this.participante)).id;
-      this._toastr.success(`Participante incluído com sucesso`);
+      this._toastr.success(`Participante salvo com sucesso`);
       this._dialogRef.close(this.participante);
     }
     catch(error){
-      console.log(error)
-      this._toastr.error(`${error.response.data.message}`);
+      this._toastr.error(`${this.tratamentoErroService.messageErro(error)}`);
     }
   }
 
+  validate(participante:ParticipanteModel){
+    this.participanteValidator.validate({participante: participante});
+    if(!participante.id)
+      this.maximoParticipantesValidator.validate({lista: new ListaModel(this.data['lista']), participante: participante});
+  }
+
   async adicionarDependente(){
-    this.novoDependente = await this._participanteService.save(this.novoDependente);
+    if(this.participante.id){
+      this.novoDependente = await this._participanteService.save(this.novoDependente);
+      await this._participanteService.addDependente(new ParticipanteModel(this.participante), this.novoDependente);
+    }
     this.participante.dependentes.push(this.novoDependente);
-    await this._participanteService.addDependente(new ParticipanteModel(this.participante), this.novoDependente);
     this.novoDependente = new ParticipanteModel();
   }
 
   async removerDependente(id:number, index:number){
-    await this._participanteService.remove(id);
+    if(this.participante.id)
+      await this._participanteService.remove(id);
     this.participante.dependentes.splice(index);
-  }
-
-  async adicionarCadeira(){
-    this.novaCadeira = await this._cadeiraService.save(this.novaCadeira);
-    this.participante.cadeiras.push(this.novaCadeira);
-    await this._participanteService.addCadeira(new ParticipanteModel(this.participante), this.novaCadeira);
-    this.novaCadeira = new CadeiraModel();
-  }
-
-  async removerCadeira(id:number, index:number){
-    await this._cadeiraService.remove(id);
-    this.participante.cadeiras.splice(index);
   }
 
   cancel(): void {

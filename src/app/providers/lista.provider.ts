@@ -15,4 +15,12 @@ export class ListaProvider{
     updateLista(lista:ListaModel){
         this.dataSource.next(lista);
     }
+
+    somatorioParticipantes(lista:ListaModel):number{
+        let quantidadeTotal:number = lista.participantes.length;
+        for(let participante of lista.participantes){
+            quantidadeTotal += participante.dependentes.length;
+        }
+        return quantidadeTotal;
+    }
 }

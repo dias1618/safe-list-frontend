@@ -8,13 +8,15 @@ export class ParticipanteModel{
     telefone:string;
     dependentes:ParticipanteModel[] = [];
     cadeiras:CadeiraModel[] = [];
+    lista:ListaModel;
 
-    constructor(data?:{id?:number, nome?:string, telefone?:string, dependentes?:ParticipanteModel[], cadeiras?:CadeiraModel[]}){
+    constructor(data?:{id?:number, nome?:string, telefone?:string, dependentes?:ParticipanteModel[], cadeiras?:CadeiraModel[], lista?:ListaModel}){
         this.id = data && data.id || 0;
         this.nome = data && data.nome || "";
         this.telefone = data && data.telefone || "";
         this.dependentes = data && data.dependentes || [];
         this.cadeiras = data && data.cadeiras || [];
+        this.lista = data && data.lista;
     }
 
     public toString = () : string => {
@@ -27,7 +29,8 @@ export class ParticipanteModel{
             "nome": "${this.nome}",
             "telefone": "${this.telefone}",
             "dependentes": "${this.dependentes}",
-            "cadeiras": "${this.cadeiras}"
+            "cadeiras": "${this.cadeiras}",
+            "lista": "${this.lista}"
         }`);
     }
 }

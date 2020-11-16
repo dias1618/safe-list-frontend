@@ -17,6 +17,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { ListaProvider } from 'src/app/providers/lista.provider';
 import { ListaService } from 'src/app/services/lista.service';
 import { ListaController } from 'src/app/controllers/lista.controller';
+import { GenerateModal } from 'src/app/services/generate-modal.service';
+import { Configuracoes } from 'src/app/providers/configuracoes.provider';
 
 let components = [
   HomeComponent,
@@ -48,7 +50,9 @@ let components = [
     DiasSemanaEnum,
     ListaProvider,
     ListaController,
-    ListaService
+    ListaService,
+    GenerateModal,
+    Configuracoes
   ],
 })
 export class HomeModule { }

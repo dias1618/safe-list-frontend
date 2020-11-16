@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/guards/auth-guard';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'home', component: NavBarComponent,
     loadChildren: () => import('./components/home/home.module').then(m=>m.HomeModule),
     canActivate: [AuthGuard]
   },
@@ -14,13 +15,8 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'listas',
+    path: 'listas',component: NavBarComponent,
     loadChildren: () => import('./components/lista/lista.module').then(m=>m.ListaModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'lugares',
-    loadChildren: () => import('./components/lugares/lugares.module').then(m=>m.LugaresModule),
     canActivate: [AuthGuard]
   },
 ];

@@ -10,10 +10,12 @@ import { ToastrModule } from "ngx-toastr";
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { ListaService } from 'src/app/services/lista.service';
 import { ListaController } from 'src/app/controllers/lista.controller';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

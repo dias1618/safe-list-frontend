@@ -32,7 +32,10 @@ export class ButtonAddComponent implements OnInit {
       width: '80vw',
       height: '85vh',
       panelClass: 'app-modal',
-      data: {participante: new ParticipanteModel()}
+      data: {
+        participante: new ParticipanteModel(),
+        lista: this.lista
+      }
     });
 
     dialogRef.afterClosed().subscribe(async result => {

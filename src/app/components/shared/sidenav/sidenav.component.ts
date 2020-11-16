@@ -23,10 +23,6 @@ export class SidenavComponent implements OnInit {
     alert('usuarios')
   }
 
-  callLugares($event){
-    this.router.navigate(['/lugares']);
-  }
-
   callConfiguracoes($event){
     alert('configuracoes')
   }

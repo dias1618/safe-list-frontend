@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NovaListaComponent } from 'src/app/components/modals/nova-lista/nova-lista.component';
 import { ListaModel } from 'src/app/models/lista.model';
 import { ListaProvider } from 'src/app/providers/lista.provider';
+import { GenerateModal } from 'src/app/services/generate-modal.service';
 
 @Component({
   selector: 'app-button-add',
@@ -15,24 +16,19 @@ export class ButtonAddComponent implements OnInit {
 
   constructor(
     public _listaProvider: ListaProvider,
-    public dialog: MatDialog
+    public _generateModal: GenerateModal
   ) { }
 
   ngOnInit(): void {
   }
 
   addLista($event){
-    const dialogRef = this.dialog.open(NovaListaComponent, {
-      width: '440px',
-      height: '280px',
-      panelClass: 'app-modal'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(result)
-        this._listaProvider.listas.push(result);
-    });
-    
+    this._generateModal.generate({component: NovaListaComponent, afterClose: this.afterAddLista.bind(this)});
   }
+
+  afterAddLista(result){
+    this._listaProvider.listas.push(result);
+  }
+  
 
 }

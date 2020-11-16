@@ -28,6 +28,7 @@ export class ListaService{
                 data: new Date(lista['data']),
                 horaInicial: new Date(lista['horaInicial']).toISOString(),
                 horaFinal: new Date(lista['horaFinal']).toISOString(),
+                participantes: lista['participantes']
             });
             listasModel.push(listaModel);
         }

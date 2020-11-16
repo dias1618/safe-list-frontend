@@ -14,7 +14,7 @@ import { NovoParticipanteComponent } from 'src/app/components/modals/novo-partic
   styleUrls: ['./table-participantes.component.scss']
 })
 export class TableParticipantesComponent implements OnInit {
-  displayedColumns: string[] = ['nome', 'cadeira', 'dependentes', 'telefone'];
+  displayedColumns: string[] = ['nome', 'dependentes', 'telefone'];
   dataSource:MatTableDataSource<ParticipanteModel>;
   initialSelection = [];
   allowMultiSelect = true;
@@ -41,7 +41,6 @@ export class TableParticipantesComponent implements OnInit {
 
   selectedRow(){
     this.selection.changed.subscribe((a) =>{
-        console.log('a = ', a)
         if (a.added[0]){
           this.callParticipante(new ParticipanteModel(a.added[0]));
         }
@@ -68,14 +67,5 @@ export class TableParticipantesComponent implements OnInit {
       }
       this.selection.clear();
     });
-  }
-
-  getCadeiras(participante:ParticipanteModel){
-    let numerosCadeiras:string = '';
-    for(let cadeira of participante.cadeiras){
-      numerosCadeiras += `${cadeira.identificacao}, `;
-    }
-
-    return numerosCadeiras.substring(0, numerosCadeiras.length-2);
   }
 }
