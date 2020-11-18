@@ -17,6 +17,7 @@ import { ParticipanteValidator } from 'src/app/validators/participante.validator
 export class NovoParticipanteComponent implements OnInit {
 
   participante: ParticipanteModel;
+  lista:ListaModel;
   novoDependente:ParticipanteModel;
   novaCadeira:CadeiraModel;
 
@@ -34,12 +35,13 @@ export class NovoParticipanteComponent implements OnInit {
     this.novoDependente = new ParticipanteModel();
     this.novaCadeira = new CadeiraModel();
     this.participante = new ParticipanteModel(this.data['participante']);
+    this.lista = new ListaModel(this.data['lista']);
   }
 
   async salvar(){
     try{
       this.validate(this.participante);
-      this.participante.id = (await this._participanteService.save(this.participante)).id;
+      this.participante.id = (await this._participanteService.save(this.participante, this.lista)).id;
       this._toastr.success(`Participante salvo com sucesso`);
       this._dialogRef.close(this.participante);
     }
@@ -56,7 +58,7 @@ export class NovoParticipanteComponent implements OnInit {
 
   async adicionarDependente(){
     if(this.participante.id){
-      this.novoDependente = await this._participanteService.save(this.novoDependente);
+      this.novoDependente = await this._participanteService.save(this.novoDependente, null);
       await this._participanteService.addDependente(new ParticipanteModel(this.participante), this.novoDependente);
     }
     this.participante.dependentes.push(this.novoDependente);

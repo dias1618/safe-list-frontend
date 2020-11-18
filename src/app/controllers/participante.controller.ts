@@ -3,19 +3,24 @@ import axios from "axios";
 import { environment } from 'src/environments/environment';
 import { CadeiraModel } from '../models/cadeira.model';
 import { Injectable } from '@angular/core';
+import { ListaModel } from '../models/lista.model';
 
 @Injectable()
 export class ParticipanteController{
 
 
-    async insert(participante:ParticipanteModel){
-        await axios.post<ParticipanteModel>(`${environment.baseUrl}/participantes`, participante, environment.axiosConfig)
+    async insert(participante:ParticipanteModel, lista:ListaModel){
+        await axios.post<ParticipanteModel>(`${environment.baseUrl}/participantes`, 
+        {participante: participante, lista: lista}, 
+        environment.axiosConfig)
             .then(value => participante = value.data)
         return participante;
     }
 
-    async update(participante:ParticipanteModel){
-        await axios.put<ParticipanteModel>(`${environment.baseUrl}/participantes`, participante, environment.axiosConfig)
+    async update(participante:ParticipanteModel, lista:ListaModel){
+        await axios.put<ParticipanteModel>(`${environment.baseUrl}/participantes`, 
+        {participante: participante, lista: lista}, 
+        environment.axiosConfig)
             .then(value => participante = value.data);
         return participante;
     }

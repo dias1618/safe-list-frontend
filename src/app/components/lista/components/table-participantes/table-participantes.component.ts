@@ -52,7 +52,7 @@ export class TableParticipantesComponent implements OnInit {
       width: '80vw',
       height: '85vh',
       panelClass: 'app-modal',
-      data: {participante: participante}
+      data: {participante: participante, lista: this.lista}
     });
 
     dialogRef.afterClosed().subscribe(async result => {
