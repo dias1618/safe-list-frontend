@@ -1,5 +1,8 @@
-<div class="content" fxLayoutGap="10px">
-    <h2>{{getTituloLista()}}</h2>
+<div class="content"  fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex fxLayout="row">
+        <h2 fxFlex>{{getTituloLista()}}</h2>
+        <app-button-download fxFlex fxLayoutAlign="end center"></app-button-download>
+    </div>
     <app-table-participantes></app-table-participantes>
     <app-resumo></app-resumo>
     <app-button-voltar></app-button-voltar>

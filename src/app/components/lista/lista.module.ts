@@ -19,7 +19,10 @@ import { Configuracoes } from 'src/app/providers/configuracoes.provider';
 import { MaximoParticipantesValidator } from 'src/app/validators/maximo-participantes.validator';
 import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
 import { ParticipanteValidator } from 'src/app/validators/participante.validator';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ButtonDownloadComponent } from './components/button-download/button-download.component'
+import { ListaParticipantesPdf } from 'src/app/pdfs/lista-participantes.pdf';
+import { GenerateReport } from 'src/app/tools/generate-report';
  
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
  
@@ -29,7 +32,9 @@ let components = [
   TableParticipantesComponent,
   ButtonAddComponent,
   ResumoComponent,
-  NovoParticipanteComponent
+  NovoParticipanteComponent,
+  ButtonVoltarComponent,
+  ButtonDownloadComponent,
 ]
 
 @NgModule({
@@ -38,7 +43,6 @@ let components = [
   ],
   declarations: [
     ...components,
-    ButtonVoltarComponent,
   ],
   imports: [
     CommonModule,
@@ -56,7 +60,9 @@ let components = [
     Configuracoes,
     ParticipanteValidator,
     MaximoParticipantesValidator,
-    TratamentoErroService
+    TratamentoErroService,
+    ListaParticipantesPdf,
+    GenerateReport
   ]
 })
 export class ListaModule { }
