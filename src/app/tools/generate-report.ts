@@ -61,7 +61,7 @@ export class GenerateReport{
                 })
             else{
                 let form = this.pdfDoc.getForm();
-                let presenca = form.createCheckBox(`participante.presenca${option.text}`)
+                let presenca = form.createCheckBox(option.text)
                 presenca.addToPage(this.page, { x: option.margin, y: alturaRow, width: 10, height: 10 })
             }
         }
