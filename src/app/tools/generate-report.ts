@@ -48,6 +48,27 @@ export class GenerateReport{
         })
     }
 
+    async addRow(options:{text?:string, fontSize?:number, margin?:number, checkbox?:boolean}[]){
+        const timesRomanFont = await this.pdfDoc.embedFont(StandardFonts.TimesRoman);
+        let alturaRow:number = this.setAltura(20);
+        for(let option of options){
+            if(!option.checkbox)
+                this.page.drawText(option.text, {
+                    x: option.margin,
+                    y: alturaRow,
+                    size: option.fontSize,
+                    font: timesRomanFont,
+                })
+            else{
+                let form = this.pdfDoc.getForm();
+                let presenca = form.createCheckBox(`participante.presenca${option.text}`)
+                presenca.addToPage(this.page, { x: option.margin, y: alturaRow, width: 10, height: 10 })
+            }
+        }
+        
+        
+    }
+
     async downloadFile(fileName:string){
         const pdfBytes = await this.pdfDoc.save()
         download(pdfBytes, `${fileName}.pdf`, "application/pdf");

@@ -28,12 +28,28 @@ export class ListaParticipantesPdf{
     
     this.generateReport.addTitle(`Paróquia Nossa Senhora das Candeias`, {fontSize: 16});
     this.generateReport.addSubtitle(`Lista de participantes do dia ${format(new Date(this.lista.data), 'dd/MM/yyyy')} (${format(new Date(this.lista.horaInicial), 'HH:mm')} - ${format(new Date(this.lista.horaFinal), 'HH:mm')})`, {fontSize: 14});
-    
+    this.generateReport.addRow([
+      {text: `Posição`, fontSize: 12, margin: 20},
+      {text: `Presença`, fontSize: 12, margin: 80},
+      {text: `Participante`, fontSize: 12, margin: 140},
+      {text: `Telefone`, fontSize: 12, margin: 480},
+      
+    ]);
+
     let quantParticipantes = 1;
     for(let participante of this.lista.participantes){
-      this.generateReport.addLine(`${((quantParticipantes++))} - ${participante.nome} ${this.maskTelefone(participante.telefone)}`, {fontSize: 12, margin: 20});
+      this.generateReport.addRow([
+        {text: `${((quantParticipantes++))}`, fontSize: 12, margin: 20},
+        {text: `${participante.nome}${participante.telefone}`, checkbox: true, margin: 80},
+        {text: `${participante.nome}`, fontSize: 12, margin: 140},
+        {text: `${this.maskTelefone(participante.telefone)}`, fontSize: 12, margin: 480}
+      ]);
       for(let dependente of participante.dependentes){
-        this.generateReport.addLine(`${((quantParticipantes++))} - ${dependente.nome}`, {fontSize: 12, margin: 40});
+        this.generateReport.addRow([
+          {text: `${((quantParticipantes++))}`, fontSize: 12, margin: 20},
+          {text: `${participante.nome}${participante.telefone}${dependente.nome}`, checkbox: true, margin: 80},
+          {text: `${dependente.nome}`, fontSize: 12, margin: 180}
+        ]);
       }
     }
     
