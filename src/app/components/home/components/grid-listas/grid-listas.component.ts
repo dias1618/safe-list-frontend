@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { Configuracoes } from 'src/app/providers/configuracoes.provider';
 
 @Component({
-  selector: 'app-grid-listas',
+  selector: 'grid-listas',
   templateUrl: './grid-listas.component.html',
   styleUrls: ['./grid-listas.component.scss']
 })

@@ -7,7 +7,7 @@ import { ListaService } from 'src/app/services/lista.service';
 
 
 @Component({
-  selector: 'app-data',
+  selector: 'data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss']
 })

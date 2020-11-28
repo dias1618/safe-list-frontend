@@ -6,7 +6,7 @@ import { ListaProvider } from 'src/app/providers/lista.provider';
 import { GenerateModal } from 'src/app/services/generate-modal.service';
 
 @Component({
-  selector: 'app-button-add',
+  selector: 'button-add',
   templateUrl: './button-add.component.html',
   styleUrls: ['./button-add.component.scss']
 })
