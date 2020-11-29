@@ -18,6 +18,11 @@ export class ListaController{
             .then(value => lista = value.data)
     }
 
+    async delete(id:number):Promise<any>{
+        return await axios.delete<any>(`${environment.baseUrl}/listas/${id}`, environment.axiosConfig)
+            .then(value => value)
+    }
+
     async addParticipante(lista:ListaModel, participante:ParticipanteModel){
         await axios.put<any>(`${environment.baseUrl}/listas/participante`, {lista: lista, participante:participante}, environment.axiosConfig);
     }

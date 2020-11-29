@@ -21,8 +21,11 @@ import { TratamentoErroService } from 'src/app/services/tratamento-erro.service'
 import { ParticipanteValidator } from 'src/app/validators/participante.validator';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { ButtonDownloadComponent } from './components/button-download/button-download.component'
+import { ButtonDeletarComponent } from './components/button-deletar/button-deletar.component'
 import { ListaParticipantesPdf } from 'src/app/pdfs/lista-participantes.pdf';
 import { GenerateReport } from 'src/app/tools/generate-report';
+import { DialogFactory } from 'src/app/tools/dialog-factory';
+import { ConfirmDialog } from 'src/app/tools/confirm-dialog';
  
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
  
@@ -35,6 +38,8 @@ let components = [
   NovoParticipanteComponent,
   ButtonVoltarComponent,
   ButtonDownloadComponent,
+  ButtonDeletarComponent,
+  ConfirmDialog
 ]
 
 @NgModule({
@@ -62,7 +67,8 @@ let components = [
     MaximoParticipantesValidator,
     TratamentoErroService,
     ListaParticipantesPdf,
-    GenerateReport
+    GenerateReport,
+    DialogFactory
   ]
 })
 export class ListaModule { }

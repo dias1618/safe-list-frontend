@@ -1,7 +1,10 @@
 <div class="content"  fxLayout="column" fxLayoutGap="10px">
     <div fxFlex fxLayout="row">
         <h2 fxFlex>{{getTituloLista()}}</h2>
-        <app-button-download fxFlex fxLayoutAlign="end center"></app-button-download>
+        <div fxFlex fxLayoutAlign="end center" fxLayoutGap="10px">
+            <button-deletar></button-deletar>
+            <button-download></button-download>
+        </div>
     </div>
     <app-table-participantes></app-table-participantes>
     <app-resumo></app-resumo>

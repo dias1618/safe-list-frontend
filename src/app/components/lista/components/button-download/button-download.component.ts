@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListaParticipantesPdf } from 'src/app/pdfs/lista-participantes.pdf';
 
 @Component({
-  selector: 'app-button-download',
+  selector: 'button-download',
   templateUrl: './button-download.component.html',
   styleUrls: ['./button-download.component.scss']
 })

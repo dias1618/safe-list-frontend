@@ -3,6 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ListaModel } from 'src/app/models/lista.model';
 import { ListaService } from 'src/app/services/lista.service';
 import { ToastrService } from 'ngx-toastr';
+import { DateService } from 'src/app/services/date.service';
+import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
 
 @Component({
   selector: 'app-nova-lista',
@@ -15,7 +17,9 @@ export class NovaListaComponent implements OnInit {
     private _listaService:ListaService,
     private _dialogRef: MatDialogRef<NovaListaComponent>,
     private _toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public lista: ListaModel
+    @Inject(MAT_DIALOG_DATA) public lista: ListaModel,
+    private _dateService: DateService,
+    private _tratamentoErroService:TratamentoErroService
   ) { }
 
   ngOnInit(): void {
@@ -28,15 +32,25 @@ export class NovaListaComponent implements OnInit {
 
   async salvar(){
     try{
-      this.lista.horaInicial = `1970-01-01T${this.lista.horaInicial}:00.000`;
-      this.lista.horaFinal = `1970-01-01T${this.lista.horaFinal}:00.000`;
+      this.validate();
+      this.lista.horaInicial = this._dateService.isoDate(this.lista.horaInicial);
+      this.lista.horaFinal = this._dateService.isoDate(this.lista.horaFinal);
       this.lista = await this._listaService.save(this.lista);
       this._toastr.success(`Lista incluída com sucesso`);
       this._dialogRef.close(this.lista);
     }
     catch(error){
-      this._toastr.error(`${error.response.data.message}`);
+      this._toastr.error(this._tratamentoErroService.messageErro(error));
     }
+  }
+
+  validate(){
+    if(this.lista.data == null)
+      throw new Error('Data inválida ou nula');
+    if(this.lista.horaInicial == null)
+      throw new Error('Hora Inicial inválida ou nula');
+    if(this.lista.horaFinal == null)
+      throw new Error('Hora Final inválida ou nula');  
   }
 
   cancel(): void {

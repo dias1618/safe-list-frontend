@@ -19,6 +19,8 @@ import { ListaService } from 'src/app/services/lista.service';
 import { ListaController } from 'src/app/controllers/lista.controller';
 import { GenerateModal } from 'src/app/services/generate-modal.service';
 import { Configuracoes } from 'src/app/providers/configuracoes.provider';
+import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
+import { DateService } from 'src/app/services/date.service';
 
 let components = [
   HomeComponent,
@@ -52,7 +54,9 @@ let components = [
     ListaController,
     ListaService,
     GenerateModal,
-    Configuracoes
+    Configuracoes,
+    DateService,
+    TratamentoErroService
   ],
 })
 export class HomeModule { }

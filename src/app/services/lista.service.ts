@@ -38,4 +38,9 @@ export class ListaService{
     async addParticipante(lista:ListaModel, participante:ParticipanteModel){
         this._listaController.addParticipante(lista, participante);
     }
+
+    async delete(id:number):Promise<any>{
+        return this._listaController.delete(id);
+    }
+
 }
