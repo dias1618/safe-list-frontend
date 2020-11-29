@@ -35,19 +35,16 @@ export class ButtonDeletarComponent implements OnInit {
       async resp => {
         if(resp){
           try{
-            this._listaService.delete(this.lista.id);
+            await this._listaService.delete(this.lista.id);
             this._toastr.success(`Lista removida com sucesso`);
             this.location.back();
           }
           catch(error){
-            this._toastr.success(error.message);
+            this._toastr.error(error.message);
           }
         }
       }
     );
-
-
-    
   }
 
 }

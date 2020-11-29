@@ -40,7 +40,7 @@ export class ListaService{
     }
 
     async delete(id:number):Promise<any>{
-        return this._listaController.delete(id);
+        return await this._listaController.delete(id);
     }
 
 }

@@ -16,7 +16,7 @@ export class ParticipanteValidator implements Validator{
     private validateTelefone(participante:ParticipanteModel){
         if(!participante.telefone || participante.telefone == '')
             throw new ValidationError('Faltando telefone do participante');
-        if(participante.telefone.length != 11)
+        if(participante.telefone.length != 10 && participante.telefone.length != 11)
             throw new ValidationError('Telefone digitado de forma incompleta');
     }
 }

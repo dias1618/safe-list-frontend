@@ -8,6 +8,7 @@ import { MaximoParticipantesValidator } from 'src/app/validators/maximo-particip
 import { ListaModel } from 'src/app/models/lista.model';
 import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
 import { ParticipanteValidator } from 'src/app/validators/participante.validator';
+import { DialogFactory } from 'src/app/tools/dialog-factory';
 
 @Component({
   selector: 'app-novo-participante',
@@ -28,7 +29,8 @@ export class NovoParticipanteComponent implements OnInit {
     private maximoParticipantesValidator: MaximoParticipantesValidator,
     private participanteValidator: ParticipanteValidator,
     private tratamentoErroService:TratamentoErroService,
-    @Inject(MAT_DIALOG_DATA) public data: ParticipanteModel
+    @Inject(MAT_DIALOG_DATA) public data: ParticipanteModel,
+    private _dialogFactory: DialogFactory,
   ) { }
 
   ngOnInit(): void {
@@ -43,7 +45,7 @@ export class NovoParticipanteComponent implements OnInit {
       this.validate(this.participante);
       this.participante.id = (await this._participanteService.save(this.participante, this.lista)).id;
       this._toastr.success(`Participante salvo com sucesso`);
-      this._dialogRef.close(this.participante);
+      this._dialogRef.close({participante: this.participante, op: 0});
     }
     catch(error){
       this._toastr.error(`${this.tratamentoErroService.messageErro(error)}`);
@@ -71,7 +73,20 @@ export class NovoParticipanteComponent implements OnInit {
     this.participante.dependentes.splice(index);
   }
 
-  cancel(): void {
-    this._dialogRef.close();
+  remove(): void {
+    this._dialogFactory.confirm('Remoção de participante', `Voce tem certeza que deseja remover esse participante com todas as suas informações?`, 'Continuar', 'Sair').subscribe(
+      async resp => {
+        if(resp){
+          try{
+            this._participanteService.remove(this.participante.id);
+            this._toastr.success(`Participante removida com sucesso`);
+            this._dialogRef.close({participante: this.participante, op: 1});
+          }
+          catch(error){
+            this._toastr.success(error.message);
+          }
+        }
+      }
+    );
   }
 }

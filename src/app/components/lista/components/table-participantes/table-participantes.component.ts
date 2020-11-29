@@ -56,13 +56,23 @@ export class TableParticipantesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      if(result){
-        let participanteSelecionado = new ParticipanteModel(result);
+      if(result.op == 0){
+        let participanteSelecionado = new ParticipanteModel(result.participante);
         for(let x = 0; x < this.lista.participantes.length; x++){
           if(participanteSelecionado.id == this.lista.participantes[x].id){
             this.lista.participantes[x] = participanteSelecionado;
           }
         }
+        this.listaProvider.updateLista(this.lista);
+      }
+      else if(result.op == 1){
+        let participanteSelecionado = new ParticipanteModel(result.participante);
+        for(let x = 0; x < this.lista.participantes.length; x++){
+          if(participanteSelecionado.id == this.lista.participantes[x].id){
+            this.lista.participantes.splice(x, 1);
+          }
+        }
+        console.log(this.lista);
         this.listaProvider.updateLista(this.lista);
       }
       this.selection.clear();

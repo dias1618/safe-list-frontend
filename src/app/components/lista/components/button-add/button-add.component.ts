@@ -39,8 +39,8 @@ export class ButtonAddComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      if(result){
-        this.lista.participantes.push(new ParticipanteModel(result));
+      if(result.participante){
+        this.lista.participantes.push(new ParticipanteModel(result.participante));
         this.listaProvider.updateLista(this.lista);
       }
     });
