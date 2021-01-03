@@ -19,47 +19,37 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+var modules = [
+   MatButtonModule,
+   MatToolbarModule,
+   MatIconModule,
+   MatSidenavModule,
+   MatBadgeModule,
+   MatListModule,
+   MatGridListModule,
+   MatInputModule,
+   MatFormFieldModule,
+   MatSelectModule,
+   MatRadioModule,
+   MatDatepickerModule,
+   MatChipsModule,
+   MatTooltipModule,
+   MatTableModule,
+   MatPaginatorModule,
+   MatCardModule,
+   MatSnackBarModule,
+   MatCheckboxModule
+]
 
 @NgModule({
    imports: [
       CommonModule,
-      MatButtonModule,
-      MatToolbarModule,
-      MatIconModule,
-      MatSidenavModule,
-      MatBadgeModule,
-      MatListModule,
-      MatGridListModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatSelectModule,
-      MatRadioModule,
-      MatDatepickerModule,
-      MatChipsModule,
-      MatTooltipModule,
-      MatTableModule,
-      MatPaginatorModule,
-      MatCardModule,
+      ...modules
    ],
    exports: [
-      MatButtonModule,
-      MatToolbarModule,
-      MatIconModule,
-      MatSidenavModule,
-      MatBadgeModule,
-      MatListModule,
-      MatGridListModule,
-      MatInputModule,
-      MatFormFieldModule,
-      MatSelectModule,
-      MatRadioModule,
-      MatDatepickerModule,
-      MatChipsModule,
-      MatTooltipModule,
-      MatTableModule,
-      MatPaginatorModule,
-      MatCardModule,
-      MatSnackBarModule
+      ...modules
    ],
    providers: [
       MatDatepickerModule,

@@ -15,6 +15,9 @@
                 <mat-label>Telefone</mat-label>
                 <input matInput [(ngModel)]="participante.telefone" mask='(00) 00000-0000' required="true">
             </mat-form-field>
+            <div class="check-fixo" fxFlex="80px" appearance="outline">
+                <mat-checkbox [(ngModel)]="participante.fixo">Fixo</mat-checkbox>
+            </div>
         </div>
         <div fxFlex fxLayout="row" fxLayoutGap="10px">
             <div fxFlex fxLayout="column">

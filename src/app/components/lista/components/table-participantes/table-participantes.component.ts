@@ -56,7 +56,7 @@ export class TableParticipantesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(async result => {
-      if(result.op == 0){
+      if(result && result.op == 0){
         let participanteSelecionado = new ParticipanteModel(result.participante);
         for(let x = 0; x < this.lista.participantes.length; x++){
           if(participanteSelecionado.id == this.lista.participantes[x].id){
@@ -65,7 +65,7 @@ export class TableParticipantesComponent implements OnInit {
         }
         this.listaProvider.updateLista(this.lista);
       }
-      else if(result.op == 1){
+      else if(result && result.op == 1){
         let participanteSelecionado = new ParticipanteModel(result.participante);
         for(let x = 0; x < this.lista.participantes.length; x++){
           if(participanteSelecionado.id == this.lista.participantes[x].id){
