@@ -43,7 +43,7 @@ export class NovoParticipanteComponent implements OnInit {
   async salvar(){
     try{
       this.validate(this.participante);
-      this.participante.id = (await this._participanteService.save(this.participante, this.lista)).id;
+      this.participante = new ParticipanteModel(await this._participanteService.save(this.participante, this.lista));
       this._toastr.success(`Participante salvo com sucesso`);
       this._dialogRef.close({participante: this.participante, op: 0});
     }

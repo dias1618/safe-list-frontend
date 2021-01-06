@@ -1,0 +1,26 @@
+:host{
+    mat-card{
+        cursor: pointer;
+        max-width: 250px;
+        height: 130px;
+    }
+
+    mat-card:hover{
+        background-color: blueviolet;
+        color: white;
+    }
+
+    mat-card:hover mat-card-subtitle{
+        background-color: blueviolet;
+        color: white;
+    }
+
+    mat-card-header{
+        max-height: 20px;
+    }
+
+    .info-title{
+        font-size: 30px;
+        font-weight: 500;
+    }
+}

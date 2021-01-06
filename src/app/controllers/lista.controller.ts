@@ -39,4 +39,11 @@ export class ListaController{
             .then(value => listas = value.data);
         return listas;
     }
+
+    async getProximos():Promise<ListaModel[]>{
+        let listas:[];
+        await axios.get<any>(`${environment.baseUrl}/listas/proximos`, environment.axiosConfig)
+            .then(value => listas = value.data);
+        return listas;
+    }
 }

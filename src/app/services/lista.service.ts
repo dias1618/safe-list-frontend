@@ -21,8 +21,19 @@ export class ListaService{
 
     async getByDate(date:Date){
         let listas = await this._listaController.getByDate(date);
+        let listasModel:ListaModel[] = this.tratarRetornoLista(listas);
+        return listasModel;
+    }
+
+    async getProximos(){
+        let listas = await this._listaController.getProximos();
+        let listasModel:ListaModel[] = this.tratarRetornoLista(listas);
+        return listasModel;
+    }
+
+    private tratarRetornoLista(listasRetorno:any[]):ListaModel[]{
         let listasModel:ListaModel[] = [];
-        for(let lista of listas){
+        for(let lista of listasRetorno){
             let listaModel = new ListaModel({
                 id: lista['id'],
                 data: new Date(lista['data']),
