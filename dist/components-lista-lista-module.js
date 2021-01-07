@@ -6216,6 +6216,7 @@ class GenerateReport {
                 }
             }
             this.contagemLinhas++;
+            console.log('this.contagemLinhas = ', this.contagemLinhas);
             if (this.contagemLinhas > 30) {
                 this.index++;
                 this.pages[this.index] = this.pdfDoc.addPage();
