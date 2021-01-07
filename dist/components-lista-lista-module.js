@@ -6152,17 +6152,19 @@ class GenerateReport {
     init() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.pdfDoc = yield pdf_lib__WEBPACK_IMPORTED_MODULE_1__["PDFDocument"].create();
-            this.page = this.pdfDoc.addPage();
-            const { width, height } = this.page.getSize();
+            this.index = 0;
+            this.pages[this.index] = this.pdfDoc.addPage();
+            const { width, height } = this.pages[this.index].getSize();
             this.width = width;
             this.height = height;
             this.altura = this.height - 50;
+            this.contagemLinhas = 0;
         });
     }
     addTitle(titulo, options) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const helviticaBoldFont = yield this.pdfDoc.embedFont(pdf_lib__WEBPACK_IMPORTED_MODULE_1__["StandardFonts"].HelveticaBold);
-            this.page.drawText(titulo, {
+            this.pages[this.index].drawText(titulo, {
                 x: 20,
                 y: this.setAltura(20),
                 size: options.fontSize,
@@ -6173,7 +6175,7 @@ class GenerateReport {
     addSubtitle(subtitulo, options) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const helviticaFont = yield this.pdfDoc.embedFont(pdf_lib__WEBPACK_IMPORTED_MODULE_1__["StandardFonts"].Helvetica);
-            this.page.drawText(subtitulo, {
+            this.pages[this.index].drawText(subtitulo, {
                 x: 20,
                 y: this.setAltura(50),
                 size: options.fontSize,
@@ -6184,7 +6186,7 @@ class GenerateReport {
     addLine(line, options) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const timesRomanFont = yield this.pdfDoc.embedFont(pdf_lib__WEBPACK_IMPORTED_MODULE_1__["StandardFonts"].TimesRoman);
-            this.page.drawText(line, {
+            this.pages[this.index].drawText(line, {
                 x: options.margin,
                 y: this.setAltura(20),
                 size: options.fontSize,
@@ -6198,7 +6200,7 @@ class GenerateReport {
             let alturaRow = this.setAltura(20);
             for (let option of options) {
                 if (!option.checkbox)
-                    this.page.drawText(option.text, {
+                    this.pages[this.index].drawText(option.text, {
                         x: option.margin,
                         y: alturaRow,
                         size: option.fontSize,
@@ -6207,8 +6209,15 @@ class GenerateReport {
                 else {
                     let form = this.pdfDoc.getForm();
                     let presenca = form.createCheckBox(option.text);
-                    presenca.addToPage(this.page, { x: option.margin, y: alturaRow, width: 10, height: 10 });
+                    presenca.addToPage(this.pages[this.index], { x: option.margin, y: alturaRow, width: 10, height: 10 });
                 }
+            }
+            this.contagemLinhas++;
+            if (this.contagemLinhas > 30) {
+                this.index++;
+                this.pages[this.index] = this.pdfDoc.addPage();
+                this.altura = this.height - 50;
+                this.contagemLinhas = 0;
             }
         });
     }

@@ -4,23 +4,28 @@ const download = require('downloadjs');
 export class GenerateReport{
 
     private pdfDoc;
-    private page;
+    private pages:any[];
+    private index;
     private width;
     private height;
     private altura;
+    private contagemLinhas;
 
     async init(){
         this.pdfDoc  = await PDFDocument.create();
-        this.page    = this.pdfDoc.addPage();
-        const { width, height } = this.page.getSize();
+        this.index = 0;
+        this.pages[this.index] = this.pdfDoc.addPage();
+        const { width, height } = this.pages[this.index].getSize();
         this.width = width;
         this.height = height;
         this.altura = this.height - 50;
+        this.contagemLinhas = 0;
+        
     }
 
     async addTitle(titulo:string, options:{fontSize:number}){
         const helviticaBoldFont = await this.pdfDoc.embedFont(StandardFonts.HelveticaBold)
-        this.page.drawText(titulo, {
+        this.pages[this.index].drawText(titulo, {
             x: 20,
             y: this.setAltura(20),
             size: options.fontSize,
@@ -30,7 +35,7 @@ export class GenerateReport{
 
     async addSubtitle(subtitulo:string, options:{fontSize:number}){
         const helviticaFont = await this.pdfDoc.embedFont(StandardFonts.Helvetica)
-        this.page.drawText(subtitulo, {
+        this.pages[this.index].drawText(subtitulo, {
             x: 20,
             y: this.setAltura(50),
             size: options.fontSize,
@@ -40,7 +45,7 @@ export class GenerateReport{
 
     async addLine(line:string, options:{fontSize:number, margin:number}){
         const timesRomanFont = await this.pdfDoc.embedFont(StandardFonts.TimesRoman)
-        this.page.drawText(line, {
+        this.pages[this.index].drawText(line, {
             x: options.margin,
             y: this.setAltura(20),
             size: options.fontSize,
@@ -53,7 +58,7 @@ export class GenerateReport{
         let alturaRow:number = this.setAltura(20);
         for(let option of options){
             if(!option.checkbox)
-                this.page.drawText(option.text, {
+                this.pages[this.index].drawText(option.text, {
                     x: option.margin,
                     y: alturaRow,
                     size: option.fontSize,
@@ -62,10 +67,17 @@ export class GenerateReport{
             else{
                 let form = this.pdfDoc.getForm();
                 let presenca = form.createCheckBox(option.text)
-                presenca.addToPage(this.page, { x: option.margin, y: alturaRow, width: 10, height: 10 })
+                presenca.addToPage(this.pages[this.index], { x: option.margin, y: alturaRow, width: 10, height: 10 })
             }
         }
-        
+        this.contagemLinhas++;
+
+        if(this.contagemLinhas > 30){
+            this.index++;
+            this.pages[this.index] = this.pdfDoc.addPage();
+            this.altura = this.height - 50;
+            this.contagemLinhas = 0;
+        }
         
     }
 
