@@ -4,7 +4,7 @@ const download = require('downloadjs');
 export class GenerateReport{
 
     private pdfDoc;
-    private pages:any[];
+    private pages:any[] = [];
     private index;
     private width;
     private height;

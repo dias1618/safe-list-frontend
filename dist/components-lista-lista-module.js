@@ -6149,6 +6149,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const download = __webpack_require__(/*! downloadjs */ "rrFr");
 class GenerateReport {
+    constructor() {
+        this.pages = [];
+    }
     init() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.pdfDoc = yield pdf_lib__WEBPACK_IMPORTED_MODULE_1__["PDFDocument"].create();
