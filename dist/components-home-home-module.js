@@ -440,8 +440,8 @@ let NovaListaComponent = class NovaListaComponent {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             try {
                 this.validate();
-                this.lista.horaInicial = this._dateService.isoDate(this.lista.horaInicial);
-                this.lista.horaFinal = this._dateService.isoDate(this.lista.horaFinal);
+                this.lista.horaInicial = this._dateService.isoDate(this.lista.horaInicial) + '-03:00';
+                this.lista.horaFinal = this._dateService.isoDate(this.lista.horaFinal) + '-03:00';
                 this.lista = yield this._listaService.save(this.lista);
                 this._toastr.success(`Lista incluída com sucesso`);
                 this._dialogRef.close(this.lista);
