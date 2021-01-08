@@ -33,8 +33,8 @@ export class NovaListaComponent implements OnInit {
   async salvar(){
     try{
       this.validate();
-      this.lista.horaInicial = this._dateService.isoDate(this.lista.horaInicial);
-      this.lista.horaFinal = this._dateService.isoDate(this.lista.horaFinal);
+      this.lista.horaInicial = this._dateService.isoDate(this.lista.horaInicial)+'-03:00';
+      this.lista.horaFinal = this._dateService.isoDate(this.lista.horaFinal)+'-03:00';
       this.lista = await this._listaService.save(this.lista);
       this._toastr.success(`Lista incluída com sucesso`);
       this._dialogRef.close(this.lista);
