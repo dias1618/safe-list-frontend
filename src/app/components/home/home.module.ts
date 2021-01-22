@@ -22,6 +22,8 @@ import { Configuracoes } from 'src/app/providers/configuracoes.provider';
 import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
 import { DateService } from 'src/app/services/date.service';
 import { GridProximasListasComponent } from './components/grid-proximas-listas/grid-proximas-listas.component';
+import { ParticipanteController } from 'src/app/controllers/participante.controller';
+import { ParticipanteService } from 'src/app/services/participante.service';
 
 let components = [
   HomeComponent,
@@ -57,7 +59,9 @@ let components = [
     GenerateModal,
     Configuracoes,
     DateService,
-    TratamentoErroService
+    TratamentoErroService,
+    ParticipanteController,
+    ParticipanteService,
   ],
 })
 export class HomeModule { }

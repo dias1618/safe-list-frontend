@@ -96,6 +96,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/services/tratamento-erro.service */ "6wgy");
 /* harmony import */ var src_app_services_date_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/services/date.service */ "Ig2y");
 /* harmony import */ var _components_grid_proximas_listas_grid_proximas_listas_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/grid-proximas-listas/grid-proximas-listas.component */ "xfca");
+/* harmony import */ var src_app_controllers_participante_controller__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! src/app/controllers/participante.controller */ "yQUh");
+/* harmony import */ var src_app_services_participante_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! src/app/services/participante.service */ "Fv/U");
+
+
 
 
 
@@ -153,7 +157,9 @@ HomeModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_services_generate_modal_service__WEBPACK_IMPORTED_MODULE_16__["GenerateModal"],
             src_app_providers_configuracoes_provider__WEBPACK_IMPORTED_MODULE_17__["Configuracoes"],
             src_app_services_date_service__WEBPACK_IMPORTED_MODULE_19__["DateService"],
-            src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_18__["TratamentoErroService"]
+            src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_18__["TratamentoErroService"],
+            src_app_controllers_participante_controller__WEBPACK_IMPORTED_MODULE_21__["ParticipanteController"],
+            src_app_services_participante_service__WEBPACK_IMPORTED_MODULE_22__["ParticipanteService"],
         ],
     })
 ], HomeModule);
