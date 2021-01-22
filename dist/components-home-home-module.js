@@ -1,48 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["components-home-home-module"],{
 
-/***/ "0Z8p":
-/*!****************************************************!*\
-  !*** ./src/app/services/generate-modal.service.ts ***!
-  \****************************************************/
-/*! exports provided: GenerateModal */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenerateModal", function() { return GenerateModal; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "iELJ");
-
-
-
-let GenerateModal = class GenerateModal {
-    constructor(dialog) {
-        this.dialog = dialog;
-    }
-    generate(options) {
-        const dialogRef = this.dialog.open(options.component, {
-            width: (options.width ? options.width : '440px'),
-            height: (options.height ? options.height : '280px'),
-            panelClass: 'app-modal'
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            if (result)
-                options.afterClose(result);
-        });
-    }
-};
-GenerateModal.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
-];
-GenerateModal = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
-], GenerateModal);
-
-
-
-/***/ }),
-
 /***/ "0wY8":
 /*!*******************************************************************!*\
   !*** ./src/app/components/home/components/data/data.component.ts ***!
@@ -130,17 +87,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_enums_dias_semana_enum__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/enums/dias-semana.enum */ "krJx");
 /* harmony import */ var _components_grid_listas_grid_listas_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/grid-listas/grid-listas.component */ "a0qv");
 /* harmony import */ var _components_button_add_button_add_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/button-add/button-add.component */ "CQYg");
-/* harmony import */ var _modals_nova_lista_nova_lista_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../modals/nova-lista/nova-lista.component */ "Z+JP");
-/* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-material-timepicker */ "cw5Z");
-/* harmony import */ var src_app_providers_lista_provider__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/providers/lista.provider */ "is5O");
-/* harmony import */ var src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/services/lista.service */ "iXT2");
-/* harmony import */ var src_app_controllers_lista_controller__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/controllers/lista.controller */ "yOvW");
-/* harmony import */ var src_app_services_generate_modal_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/services/generate-modal.service */ "0Z8p");
-/* harmony import */ var src_app_providers_configuracoes_provider__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/providers/configuracoes.provider */ "1qiw");
-/* harmony import */ var src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/services/tratamento-erro.service */ "6wgy");
-/* harmony import */ var src_app_services_date_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! src/app/services/date.service */ "Ig2y");
-/* harmony import */ var _components_grid_proximas_listas_grid_proximas_listas_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/grid-proximas-listas/grid-proximas-listas.component */ "xfca");
-
+/* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-material-timepicker */ "cw5Z");
+/* harmony import */ var src_app_providers_lista_provider__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/providers/lista.provider */ "is5O");
+/* harmony import */ var src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/services/lista.service */ "iXT2");
+/* harmony import */ var src_app_controllers_lista_controller__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/controllers/lista.controller */ "yOvW");
+/* harmony import */ var src_app_services_generate_modal_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/services/generate-modal.service */ "0Z8p");
+/* harmony import */ var src_app_providers_configuracoes_provider__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/providers/configuracoes.provider */ "1qiw");
+/* harmony import */ var src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/services/tratamento-erro.service */ "6wgy");
+/* harmony import */ var src_app_services_date_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/services/date.service */ "Ig2y");
+/* harmony import */ var _components_grid_proximas_listas_grid_proximas_listas_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/grid-proximas-listas/grid-proximas-listas.component */ "xfca");
 
 
 
@@ -167,8 +122,7 @@ let components = [
     _components_data_data_component__WEBPACK_IMPORTED_MODULE_6__["DataComponent"],
     _components_grid_listas_grid_listas_component__WEBPACK_IMPORTED_MODULE_10__["GridListasComponent"],
     _components_button_add_button_add_component__WEBPACK_IMPORTED_MODULE_11__["ButtonAddComponent"],
-    _modals_nova_lista_nova_lista_component__WEBPACK_IMPORTED_MODULE_12__["NovaListaComponent"],
-    _components_grid_proximas_listas_grid_proximas_listas_component__WEBPACK_IMPORTED_MODULE_21__["GridProximasListasComponent"]
+    _components_grid_proximas_listas_grid_proximas_listas_component__WEBPACK_IMPORTED_MODULE_20__["GridProximasListasComponent"]
 ];
 let HomeModule = class HomeModule {
 };
@@ -186,20 +140,20 @@ HomeModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_7__["MatDatepickerModule"],
             _angular_material_core__WEBPACK_IMPORTED_MODULE_8__["MatNativeDateModule"],
-            ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_13__["NgxMaterialTimepickerModule"].setLocale('pt-BR')
+            ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_12__["NgxMaterialTimepickerModule"].setLocale('pt-BR')
         ],
         providers: [
             _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_7__["MatDatepickerModule"],
             _angular_material_core__WEBPACK_IMPORTED_MODULE_8__["MatNativeDateModule"],
             { provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_8__["MAT_DATE_LOCALE"], useValue: 'pt-BR' },
             src_app_enums_dias_semana_enum__WEBPACK_IMPORTED_MODULE_9__["DiasSemanaEnum"],
-            src_app_providers_lista_provider__WEBPACK_IMPORTED_MODULE_14__["ListaProvider"],
-            src_app_controllers_lista_controller__WEBPACK_IMPORTED_MODULE_16__["ListaController"],
-            src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_15__["ListaService"],
-            src_app_services_generate_modal_service__WEBPACK_IMPORTED_MODULE_17__["GenerateModal"],
-            src_app_providers_configuracoes_provider__WEBPACK_IMPORTED_MODULE_18__["Configuracoes"],
-            src_app_services_date_service__WEBPACK_IMPORTED_MODULE_20__["DateService"],
-            src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_19__["TratamentoErroService"]
+            src_app_providers_lista_provider__WEBPACK_IMPORTED_MODULE_13__["ListaProvider"],
+            src_app_controllers_lista_controller__WEBPACK_IMPORTED_MODULE_15__["ListaController"],
+            src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_14__["ListaService"],
+            src_app_services_generate_modal_service__WEBPACK_IMPORTED_MODULE_16__["GenerateModal"],
+            src_app_providers_configuracoes_provider__WEBPACK_IMPORTED_MODULE_17__["Configuracoes"],
+            src_app_services_date_service__WEBPACK_IMPORTED_MODULE_19__["DateService"],
+            src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_18__["TratamentoErroService"]
         ],
     })
 ], HomeModule);
@@ -311,25 +265,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "Ig2y":
-/*!******************************************!*\
-  !*** ./src/app/services/date.service.ts ***!
-  \******************************************/
-/*! exports provided: DateService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DateService", function() { return DateService; });
-class DateService {
-    isoDate(date) {
-        return `1970-01-01T${date}:00.000`;
-    }
-}
-
-
-/***/ }),
-
 /***/ "NOed":
 /*!********************************************************!*\
   !*** ./src/app/components/home/home-routing.module.ts ***!
@@ -388,98 +323,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<button class=\"fab-bottom-right\" mat-fab color=\"primary\" id=\"add-button\" matTooltip=\"Adicionar lista\" (click)=\"addLista($event)\"><i class=\"material-icons\" >add</i></button>");
-
-/***/ }),
-
-/***/ "Z+JP":
-/*!**********************************************************************!*\
-  !*** ./src/app/components/modals/nova-lista/nova-lista.component.ts ***!
-  \**********************************************************************/
-/*! exports provided: NovaListaComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovaListaComponent", function() { return NovaListaComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_nova_lista_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./nova-lista.component.html */ "p+zy");
-/* harmony import */ var _nova_lista_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nova-lista.component.scss */ "qNgY");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "8Y7J");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "iELJ");
-/* harmony import */ var src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/lista.model */ "Zs01");
-/* harmony import */ var src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/lista.service */ "iXT2");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "EApP");
-/* harmony import */ var src_app_services_date_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/date.service */ "Ig2y");
-/* harmony import */ var src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/tratamento-erro.service */ "6wgy");
-
-
-
-
-
-
-
-
-
-
-let NovaListaComponent = class NovaListaComponent {
-    constructor(_listaService, _dialogRef, _toastr, lista, _dateService, _tratamentoErroService) {
-        this._listaService = _listaService;
-        this._dialogRef = _dialogRef;
-        this._toastr = _toastr;
-        this.lista = lista;
-        this._dateService = _dateService;
-        this._tratamentoErroService = _tratamentoErroService;
-    }
-    ngOnInit() {
-        this.lista = new src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_5__["ListaModel"]();
-    }
-    changeData($event) {
-        this.lista.data = $event.target.value;
-    }
-    salvar() {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            try {
-                this.validate();
-                this.lista.horaInicial = this._dateService.isoDate(this.lista.horaInicial) + '-03:00';
-                this.lista.horaFinal = this._dateService.isoDate(this.lista.horaFinal) + '-03:00';
-                this.lista = yield this._listaService.save(this.lista);
-                this._toastr.success(`Lista incluída com sucesso`);
-                this._dialogRef.close(this.lista);
-            }
-            catch (error) {
-                this._toastr.error(this._tratamentoErroService.messageErro(error));
-            }
-        });
-    }
-    validate() {
-        if (this.lista.data == null)
-            throw new Error('Data inválida ou nula');
-        if (this.lista.horaInicial == null)
-            throw new Error('Hora Inicial inválida ou nula');
-        if (this.lista.horaFinal == null)
-            throw new Error('Hora Final inválida ou nula');
-    }
-    cancel() {
-        this._dialogRef.close();
-    }
-};
-NovaListaComponent.ctorParameters = () => [
-    { type: src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_6__["ListaService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"] },
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrService"] },
-    { type: src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_5__["ListaModel"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"],] }] },
-    { type: src_app_services_date_service__WEBPACK_IMPORTED_MODULE_8__["DateService"] },
-    { type: src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_9__["TratamentoErroService"] }
-];
-NovaListaComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: 'app-nova-lista',
-        template: _raw_loader_nova_lista_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_nova_lista_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
-    })
-], NovaListaComponent);
-
-
 
 /***/ }),
 
@@ -590,32 +433,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<mat-grid-list cols=\"1\" rowHeight=\"2:1\">\n    <mat-grid-tile *ngFor=\"let lista of listas\">\n        <mat-card fxFlex fxLayout=\"column\" (click)=\"navigate(lista)\" >\n            <mat-card-header fxFlex fxLayout=\"column\" >\n                <mat-card-subtitle class=\"info-header\">{{getData(lista)}} - {{getHorario(lista)}}</mat-card-subtitle>\n            </mat-card-header>\n            <mat-card-content fxFlex fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutGap=\"10px\">\n                <div class=\"info-title\">{{getParticipantes(lista)}}</div>\n                <div class=\"info-subtitle\">participantes</div>\n            </mat-card-content>\n        </mat-card>\n    </mat-grid-tile>\n</mat-grid-list>");
-
-/***/ }),
-
-/***/ "p+zy":
-/*!**************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/modals/nova-lista/nova-lista.component.html ***!
-  \**************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div fxFlex fxLayout=\"column\" fxLayoutGap=\"10px\">\n    <mat-toolbar fxFlex color=\"primary\">\n        <div class=\"header\" fxFlex fxLayoutAlign=\"center center\">\n            NOVA LISTA\n        </div>\n    </mat-toolbar>\n\n    <div fxFlex fxLayout=\"column\" class=\"modal-content\">\n        <div fxFlex>\n            <mat-form-field fxFlex appearance=\"outline\">\n                <mat-label>Data</mat-label>\n                <input matInput [matDatepicker]=\"picker\" (dateChange)=\"changeData($event)\" readonly>\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n        </div>\n        <div fxFlex fxLayoutGap=\"10px\">\n            <mat-form-field fxFlex appearance=\"outline\">\n                <mat-label>Hora Inicial</mat-label>\n                <input matInput [ngxTimepicker]=\"horaInicial\" [(ngModel)]=\"lista.horaInicial\" [format]=\"24\" readonly>\n                <ngx-material-timepicker #horaInicial></ngx-material-timepicker>\n            </mat-form-field>\n            <mat-form-field fxFlex appearance=\"outline\">\n                <mat-label>Hora Final</mat-label>\n                <input matInput [ngxTimepicker]=\"horaFinal\" [(ngModel)]=\"lista.horaFinal\" [format]=\"24\" readonly>\n                <ngx-material-timepicker #horaFinal></ngx-material-timepicker>\n            </mat-form-field>\n        </div>\n        <div fxFlex fxLayoutAlign=\"end\" fxLayoutGap=\"10px\">\n            <button mat-raised-button color=\"accent\" (click)=\"cancel()\">Cancelar</button>\n            <button mat-raised-button color=\"primary\" (click)=\"salvar()\">Salvar</button>\n        </div>\n    </div>\n</div>");
-
-/***/ }),
-
-/***/ "qNgY":
-/*!************************************************************************!*\
-  !*** ./src/app/components/modals/nova-lista/nova-lista.component.scss ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (":host .header {\n  height: 50px;\n}\n:host .modal-content {\n  margin: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9tb2RhbHMvbm92YS1saXN0YS9ub3ZhLWxpc3RhLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBQ0ksWUFBQTtBQUFSO0FBR0k7RUFDSSxZQUFBO0FBRFIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL21vZGFscy9ub3ZhLWxpc3RhL25vdmEtbGlzdGEuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdHtcbiAgICAuaGVhZGVye1xuICAgICAgICBoZWlnaHQ6IDUwcHg7XG4gICAgfVxuXG4gICAgLm1vZGFsLWNvbnRlbnR7XG4gICAgICAgIG1hcmdpbjogMTBweDtcbiAgICB9XG59Il19 */");
 
 /***/ }),
 

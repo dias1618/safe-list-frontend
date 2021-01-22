@@ -12,6 +12,28 @@ module.exports = __webpack_require__(/*! /home/dias1618/Projetos/safe-list/safe-
 
 /***/ }),
 
+/***/ "6wgy":
+/*!*****************************************************!*\
+  !*** ./src/app/services/tratamento-erro.service.ts ***!
+  \*****************************************************/
+/*! exports provided: TratamentoErroService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TratamentoErroService", function() { return TratamentoErroService; });
+class TratamentoErroService {
+    messageErro(error) {
+        if (error.response)
+            return error.response.data.message;
+        else
+            return error.message;
+    }
+}
+
+
+/***/ }),
+
 /***/ "9p5s":
 /*!******************************************************************!*\
   !*** ./src/app/components/shared/sidenav/sidenav.component.scss ***!
@@ -77,6 +99,72 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "Fv/U":
+/*!**************************************************!*\
+  !*** ./src/app/services/participante.service.ts ***!
+  \**************************************************/
+/*! exports provided: ParticipanteService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParticipanteService", function() { return ParticipanteService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var src_app_controllers_participante_controller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/controllers/participante.controller */ "yQUh");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+
+
+
+let ParticipanteService = class ParticipanteService {
+    constructor(_participanteController) {
+        this._participanteController = _participanteController;
+    }
+    save(participante, lista) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (participante.id == undefined || participante.id == 0) {
+                return yield this._participanteController.insert(participante, lista);
+            }
+            else
+                return yield this._participanteController.update(participante, lista);
+        });
+    }
+    get(id) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this._participanteController.get(id);
+        });
+    }
+    getAll() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return yield this._participanteController.getAll();
+        });
+    }
+    addDependente(participante, dependente) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this._participanteController.addDependente(participante, dependente);
+        });
+    }
+    addCadeira(participante, cadeira) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this._participanteController.addCadeira(participante, cadeira);
+        });
+    }
+    remove(id) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this._participanteController.remove(id);
+        });
+    }
+};
+ParticipanteService.ctorParameters = () => [
+    { type: src_app_controllers_participante_controller__WEBPACK_IMPORTED_MODULE_1__["ParticipanteController"] }
+];
+ParticipanteService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])()
+], ParticipanteService);
+
+
+
+/***/ }),
+
 /***/ "IfdK":
 /*!*********************************************!*\
   !*** ./src/app/services/session.service.ts ***!
@@ -118,6 +206,25 @@ SessionService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "Ig2y":
+/*!******************************************!*\
+  !*** ./src/app/services/date.service.ts ***!
+  \******************************************/
+/*! exports provided: DateService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DateService", function() { return DateService; });
+class DateService {
+    isoDate(date) {
+        return `1970-01-01T${date}:00.000`;
+    }
+}
+
+
+/***/ }),
+
 /***/ "KZX/":
 /*!*************************************!*\
   !*** ./src/shared/shared.module.ts ***!
@@ -141,6 +248,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/guards/auth-guard */ "SrlS");
 /* harmony import */ var src_app_components_shared_header_header_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/components/shared/header/header.component */ "j/Fd");
 /* harmony import */ var src_app_components_shared_sidenav_sidenav_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/components/shared/sidenav/sidenav.component */ "Kxz1");
+/* harmony import */ var src_app_components_modals_nova_lista_nova_lista_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/components/modals/nova-lista/nova-lista.component */ "Z+JP");
+/* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-material-timepicker */ "cw5Z");
+/* harmony import */ var src_app_services_date_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/services/date.service */ "Ig2y");
+/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/datepicker */ "TN/R");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/core */ "UhP/");
+
+
+
+
+
 
 
 
@@ -157,6 +274,7 @@ __webpack_require__.r(__webpack_exports__);
 let components = [
     src_app_components_shared_header_header_component__WEBPACK_IMPORTED_MODULE_11__["HeaderComponent"],
     src_app_components_shared_sidenav_sidenav_component__WEBPACK_IMPORTED_MODULE_12__["SidenavComponent"],
+    src_app_components_modals_nova_lista_nova_lista_component__WEBPACK_IMPORTED_MODULE_13__["NovaListaComponent"]
 ];
 let modules = [
     _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -178,6 +296,9 @@ SharedModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         ],
         imports: [
             ...modules,
+            _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_16__["MatDatepickerModule"],
+            _angular_material_core__WEBPACK_IMPORTED_MODULE_17__["MatNativeDateModule"],
+            ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_14__["NgxMaterialTimepickerModule"].setLocale('pt-BR')
         ],
         exports: [
             ...components,
@@ -188,6 +309,10 @@ SharedModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"],
             src_app_services_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
             src_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"],
+            _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_16__["MatDatepickerModule"],
+            _angular_material_core__WEBPACK_IMPORTED_MODULE_17__["MatNativeDateModule"],
+            { provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_17__["MAT_DATE_LOCALE"], useValue: 'pt-BR' },
+            src_app_services_date_service__WEBPACK_IMPORTED_MODULE_15__["DateService"],
         ]
     })
 ], SharedModule);
@@ -515,6 +640,138 @@ AuthController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "Z+JP":
+/*!**********************************************************************!*\
+  !*** ./src/app/components/modals/nova-lista/nova-lista.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: NovaListaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovaListaComponent", function() { return NovaListaComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_nova_lista_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./nova-lista.component.html */ "p+zy");
+/* harmony import */ var _nova_lista_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nova-lista.component.scss */ "qNgY");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "iELJ");
+/* harmony import */ var src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/lista.model */ "Zs01");
+/* harmony import */ var src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/lista.service */ "iXT2");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "EApP");
+/* harmony import */ var src_app_services_date_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/date.service */ "Ig2y");
+/* harmony import */ var src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/tratamento-erro.service */ "6wgy");
+/* harmony import */ var src_app_services_participante_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/participante.service */ "Fv/U");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ "SVse");
+
+
+
+
+
+
+
+
+
+
+
+
+let NovaListaComponent = class NovaListaComponent {
+    constructor(_listaService, _dialogRef, _toastr, lista, _dateService, _tratamentoErroService, _participanteService, location) {
+        this._listaService = _listaService;
+        this._dialogRef = _dialogRef;
+        this._toastr = _toastr;
+        this.lista = lista;
+        this._dateService = _dateService;
+        this._tratamentoErroService = _tratamentoErroService;
+        this._participanteService = _participanteService;
+        this.location = location;
+        this.popWindows = false;
+    }
+    ngOnInit() {
+        if (!this.lista)
+            this.lista = new src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_5__["ListaModel"]();
+        else {
+            this.popWindows = true;
+            this.lista = Object.assign(this.lista, src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_5__["ListaModel"]);
+            this.lista.id = null;
+            this.lista.data = null;
+            this.lista.horaInicial = null;
+            this.lista.horaFinal = null;
+            for (let participante of this.lista.participantes) {
+                participante.id = null;
+                for (let dependente of participante.dependentes) {
+                    dependente.id = null;
+                }
+            }
+        }
+    }
+    changeData($event) {
+        this.lista.data = $event.target.value;
+    }
+    salvar() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            try {
+                this.validate();
+                this.lista.horaInicial = this._dateService.isoDate(this.lista.horaInicial) + '-03:00';
+                this.lista.horaFinal = this._dateService.isoDate(this.lista.horaFinal) + '-03:00';
+                this.lista = yield this._listaService.save(this.lista);
+                yield this.salvarParticipantes();
+                this._toastr.success(`Lista incluída com sucesso`);
+                this._dialogRef.close(this.lista);
+                if (this.popWindows)
+                    this.location.back();
+            }
+            catch (error) {
+                this._toastr.error(this._tratamentoErroService.messageErro(error));
+            }
+        });
+    }
+    salvarParticipantes() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            for (let participante of this.lista.participantes) {
+                if (!participante.fixo)
+                    continue;
+                participante = yield this._participanteService.save(participante, this.lista);
+                for (let dependente of participante.dependentes) {
+                    dependente = yield this._participanteService.save(dependente, null);
+                    yield this._participanteService.addDependente(participante, dependente);
+                }
+            }
+        });
+    }
+    validate() {
+        if (this.lista.data == null)
+            throw new Error('Data inválida ou nula');
+        if (this.lista.horaInicial == null)
+            throw new Error('Hora Inicial inválida ou nula');
+        if (this.lista.horaFinal == null)
+            throw new Error('Hora Final inválida ou nula');
+    }
+    cancel() {
+        this._dialogRef.close();
+    }
+};
+NovaListaComponent.ctorParameters = () => [
+    { type: src_app_services_lista_service__WEBPACK_IMPORTED_MODULE_6__["ListaService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrService"] },
+    { type: src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_5__["ListaModel"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"],] }] },
+    { type: src_app_services_date_service__WEBPACK_IMPORTED_MODULE_8__["DateService"] },
+    { type: src_app_services_tratamento_erro_service__WEBPACK_IMPORTED_MODULE_9__["TratamentoErroService"] },
+    { type: src_app_services_participante_service__WEBPACK_IMPORTED_MODULE_10__["ParticipanteService"] },
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_11__["Location"] }
+];
+NovaListaComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-nova-lista',
+        template: _raw_loader_nova_lista_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_nova_lista_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], NovaListaComponent);
+
+
+
+/***/ }),
+
 /***/ "ZAI4":
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
@@ -600,6 +857,7 @@ class ListaModel {
         this.data = data && data.data;
         this.horaInicial = data && data.horaInicial;
         this.horaFinal = data && data.horaFinal;
+        this.nomeCapela = data && data.nomeCapela;
         this.participantes = data && data.participantes || [];
     }
 }
@@ -716,6 +974,11 @@ let ListaService = class ListaService {
             return yield this._listaController.delete(id);
         });
     }
+    repetirLista(id) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return yield this._listaController.repetirLista(id);
+        });
+    }
 };
 ListaService.ctorParameters = () => [
     { type: src_app_controllers_lista_controller__WEBPACK_IMPORTED_MODULE_2__["ListaController"] }
@@ -824,6 +1087,32 @@ AuthService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 ], AuthService);
 
 
+
+/***/ }),
+
+/***/ "p+zy":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/modals/nova-lista/nova-lista.component.html ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div fxFlex fxLayout=\"column\" fxLayoutGap=\"10px\">\n    <mat-toolbar fxFlex color=\"primary\">\n        <div class=\"header\" fxFlex fxLayoutAlign=\"center center\">\n            NOVA LISTA\n        </div>\n    </mat-toolbar>\n\n    <div fxFlex fxLayout=\"column\" class=\"modal-content\">\n        <div fxFlex>\n            <mat-form-field fxFlex appearance=\"outline\">\n                <mat-label>Data</mat-label>\n                <input matInput [matDatepicker]=\"picker\" (dateChange)=\"changeData($event)\" readonly>\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n        </div>\n        <div fxFlex fxLayoutGap=\"10px\">\n            <mat-form-field fxFlex appearance=\"outline\">\n                <mat-label>Hora Inicial</mat-label>\n                <input matInput [ngxTimepicker]=\"horaInicial\" [(ngModel)]=\"lista.horaInicial\" [format]=\"24\" readonly>\n                <ngx-material-timepicker #horaInicial></ngx-material-timepicker>\n            </mat-form-field>\n            <mat-form-field fxFlex appearance=\"outline\">\n                <mat-label>Hora Final</mat-label>\n                <input matInput [ngxTimepicker]=\"horaFinal\" [(ngModel)]=\"lista.horaFinal\" [format]=\"24\" readonly>\n                <ngx-material-timepicker #horaFinal></ngx-material-timepicker>\n            </mat-form-field>\n        </div>\n        <div fxFlex fxLayoutAlign=\"end\" fxLayoutGap=\"10px\">\n            <button mat-raised-button color=\"accent\" (click)=\"cancel()\">Cancelar</button>\n            <button mat-raised-button color=\"primary\" (click)=\"salvar()\">Salvar</button>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "qNgY":
+/*!************************************************************************!*\
+  !*** ./src/app/components/modals/nova-lista/nova-lista.component.scss ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (":host .header {\n  height: 50px;\n}\n:host .modal-content {\n  margin: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9tb2RhbHMvbm92YS1saXN0YS9ub3ZhLWxpc3RhLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBQ0ksWUFBQTtBQUFSO0FBR0k7RUFDSSxZQUFBO0FBRFIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL21vZGFscy9ub3ZhLWxpc3RhL25vdmEtbGlzdGEuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdHtcbiAgICAuaGVhZGVye1xuICAgICAgICBoZWlnaHQ6IDUwcHg7XG4gICAgfVxuXG4gICAgLm1vZGFsLWNvbnRlbnR7XG4gICAgICAgIG1hcmdpbjogMTBweDtcbiAgICB9XG59Il19 */");
 
 /***/ }),
 
@@ -946,10 +1235,92 @@ let ListaController = class ListaController {
             return listas;
         });
     }
+    repetirLista(id) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/listas/${id}`, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig);
+        });
+    }
 };
 ListaController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])()
 ], ListaController);
+
+
+
+/***/ }),
+
+/***/ "yQUh":
+/*!********************************************************!*\
+  !*** ./src/app/controllers/participante.controller.ts ***!
+  \********************************************************/
+/*! exports provided: ParticipanteController */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParticipanteController", function() { return ParticipanteController; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "vDqi");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "AytR");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+
+
+
+
+let ParticipanteController = class ParticipanteController {
+    insert(participante, lista) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/participantes`, { participante: participante, lista: lista }, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig)
+                .then(value => participante = value.data);
+            return participante;
+        });
+    }
+    update(participante, lista) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/participantes`, { participante: participante, lista: lista }, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig)
+                .then(value => participante = value.data);
+            return participante;
+        });
+    }
+    addDependente(participante, dependente) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/participantes/dependente`, { participante: participante, dependente: dependente }, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig);
+        });
+    }
+    addCadeira(participante, cadeira) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.put(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/participantes/cadeira`, { participante: participante, cadeira: cadeira }, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig);
+        });
+    }
+    get(id) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            let participante;
+            yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/participantes/${id}`, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig)
+                .then(value => participante = value.data);
+            return participante;
+        });
+    }
+    getAll() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            let participantes;
+            yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/participantes`, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig)
+                .then(value => participantes = value.data);
+            return participantes;
+        });
+    }
+    remove(id) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            let participanteRemovido;
+            yield axios__WEBPACK_IMPORTED_MODULE_1___default.a.delete(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].baseUrl}/participantes/${id}`, src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].axiosConfig)
+                .then(value => participanteRemovido = value.data);
+            return participanteRemovido;
+        });
+    }
+};
+ParticipanteController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])()
+], ParticipanteController);
 
 
 

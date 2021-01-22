@@ -1103,6 +1103,50 @@ function differenceInWeeks(dirtyDateLeft, dirtyDateRight) {
 
 /***/ }),
 
+/***/ "0Z8p":
+/*!****************************************************!*\
+  !*** ./src/app/services/generate-modal.service.ts ***!
+  \****************************************************/
+/*! exports provided: GenerateModal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenerateModal", function() { return GenerateModal; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "8Y7J");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "iELJ");
+
+
+
+let GenerateModal = class GenerateModal {
+    constructor(dialog) {
+        this.dialog = dialog;
+    }
+    generate(options) {
+        const dialogRef = this.dialog.open(options.component, {
+            width: (options.width ? options.width : '440px'),
+            height: (options.height ? options.height : '280px'),
+            panelClass: 'app-modal',
+            data: options.data
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result)
+                options.afterClose(result);
+        });
+    }
+};
+GenerateModal.ctorParameters = () => [
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
+];
+GenerateModal = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], GenerateModal);
+
+
+
+/***/ }),
+
 /***/ "0f5V":
 /*!***************************************************************!*\
   !*** ./node_modules/date-fns/esm/startOfISOWeekYear/index.js ***!
@@ -2711,28 +2755,6 @@ function startOfDecade(dirtyDate) {
   date.setHours(0, 0, 0, 0);
   return date;
 }
-
-/***/ }),
-
-/***/ "6wgy":
-/*!*****************************************************!*\
-  !*** ./src/app/services/tratamento-erro.service.ts ***!
-  \*****************************************************/
-/*! exports provided: TratamentoErroService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TratamentoErroService", function() { return TratamentoErroService; });
-class TratamentoErroService {
-    messageErro(error) {
-        if (error.response)
-            return error.response.data.message;
-        else
-            return error.message;
-    }
-}
-
 
 /***/ }),
 
