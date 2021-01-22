@@ -22017,8 +22017,8 @@ let NovoParticipanteComponent = class NovoParticipanteComponent {
     adicionarDependente() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             try {
+                this.validateDependente(this.novoDependente);
                 if (this.participante.id) {
-                    this.validateDependente(this.novoDependente);
                     this.novoDependente.responsavel = this.participante;
                     this.novoDependente = yield this._participanteService.save(this.novoDependente, null);
                     yield this._participanteService.addDependente(new src_app_models_participante_model__WEBPACK_IMPORTED_MODULE_6__["ParticipanteModel"](this.participante), this.novoDependente);

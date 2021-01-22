@@ -66,8 +66,8 @@ export class NovoParticipanteComponent implements OnInit {
 
   async adicionarDependente(){
     try{
+      this.validateDependente(this.novoDependente);
       if(this.participante.id){
-        this.validateDependente(this.novoDependente);
         this.novoDependente.responsavel = this.participante;
         this.novoDependente = await this._participanteService.save(this.novoDependente, null);
         await this._participanteService.addDependente(new ParticipanteModel(this.participante), this.novoDependente);
