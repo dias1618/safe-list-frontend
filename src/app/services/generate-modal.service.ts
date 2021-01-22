@@ -8,11 +8,12 @@ export class GenerateModal{
         public dialog: MatDialog
     ) { }
 
-    generate(options:{component:any, width?:string, height?:string, afterClose?:Function}){
+    generate(options:{component:any, width?:string, height?:string, afterClose?:Function, data?:any}){
         const dialogRef = this.dialog.open(options.component, {
             width: (options.width ? options.width : '440px'),
             height: (options.height ? options.height : '280px'),
-            panelClass: 'app-modal'
+            panelClass: 'app-modal',
+            data: options.data
         });
       
         dialogRef.afterClosed().subscribe(result => {

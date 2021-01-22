@@ -1,7 +1,14 @@
 <div class="content"  fxLayout="column" fxLayoutGap="10px">
     <div fxFlex fxLayout="row">
-        <h2 fxFlex>{{getTituloLista()}}</h2>
+        <h3 fxFlex>{{getTituloLista()}}</h3>
+        <div fxLayout="column" fxLayoutGap="10px" style="width: 400px;">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Capela</mat-label>
+                <input matInput [(ngModel)]="nomeCapela" required="true" (change)="onChangeNomeCapela($event)">
+            </mat-form-field>
+        </div>
         <div fxFlex fxLayoutAlign="end center" fxLayoutGap="10px">
+            <button-repetir></button-repetir>
             <button-deletar></button-deletar>
             <button-download></button-download>
         </div>

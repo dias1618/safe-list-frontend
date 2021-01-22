@@ -20,9 +20,14 @@ export class ListaComponent implements OnInit {
     private diasSemanaEnum:DiasSemanaEnum
   ) { }
 
+  listaId:number;
+  nomeCapela:string;
+
   async ngOnInit(){
-    const listaId = Number(this.route.snapshot.paramMap.get('id'));
-    this.listaProvider.updateLista(await this._listaService.get(listaId));
+    this.listaId = Number(this.route.snapshot.paramMap.get('id'));
+    let lista = await this._listaService.get(this.listaId);
+    this.nomeCapela = lista.nomeCapela;
+    this.listaProvider.updateLista(lista);
   }
 
   getTituloLista(){
@@ -38,4 +43,11 @@ export class ListaComponent implements OnInit {
     return tituloLista;
   }
 
+
+  async onChangeNomeCapela($event){
+    let lista:ListaModel = await this._listaService.get(this.listaId);
+    lista.nomeCapela = $event.target.value;
+    this.listaProvider.updateLista(lista);
+    await this._listaService.save(lista);    
+  }
 }

@@ -53,5 +53,8 @@ export class ListaService{
     async delete(id:number):Promise<any>{
         return await this._listaController.delete(id);
     }
+    async repetirLista(id:number):Promise<ListaModel>{
+        return await this._listaController.repetirLista(id);
+    }
 
 }

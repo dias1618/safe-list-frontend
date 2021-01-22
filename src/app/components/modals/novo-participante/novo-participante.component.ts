@@ -9,6 +9,7 @@ import { ListaModel } from 'src/app/models/lista.model';
 import { TratamentoErroService } from 'src/app/services/tratamento-erro.service';
 import { ParticipanteValidator } from 'src/app/validators/participante.validator';
 import { DialogFactory } from 'src/app/tools/dialog-factory';
+import { DependenteValidator } from 'src/app/validators/dependente.validator';
 
 @Component({
   selector: 'app-novo-participante',
@@ -31,6 +32,7 @@ export class NovoParticipanteComponent implements OnInit {
     private tratamentoErroService:TratamentoErroService,
     @Inject(MAT_DIALOG_DATA) public data: ParticipanteModel,
     private _dialogFactory: DialogFactory,
+    private dependenteValidator: DependenteValidator,
   ) { }
 
   ngOnInit(): void {
@@ -58,13 +60,24 @@ export class NovoParticipanteComponent implements OnInit {
       this.maximoParticipantesValidator.validate({lista: new ListaModel(this.data['lista']), participante: participante});
   }
 
+  validateDependente(dependente:ParticipanteModel){
+    this.dependenteValidator.validate({participante: dependente});
+  }
+
   async adicionarDependente(){
-    if(this.participante.id){
-      this.novoDependente = await this._participanteService.save(this.novoDependente, null);
-      await this._participanteService.addDependente(new ParticipanteModel(this.participante), this.novoDependente);
+    try{
+      if(this.participante.id){
+        this.validateDependente(this.novoDependente);
+        this.novoDependente.responsavel = this.participante;
+        this.novoDependente = await this._participanteService.save(this.novoDependente, null);
+        await this._participanteService.addDependente(new ParticipanteModel(this.participante), this.novoDependente);
+      }
+      this.participante.dependentes.push(this.novoDependente);
+      this.novoDependente = new ParticipanteModel();
     }
-    this.participante.dependentes.push(this.novoDependente);
-    this.novoDependente = new ParticipanteModel();
+    catch(error){
+      this._toastr.error(`${this.tratamentoErroService.messageErro(error)}`);
+    }
   }
 
   async removerDependente(id:number, index:number){

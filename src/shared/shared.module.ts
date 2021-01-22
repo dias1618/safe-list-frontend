@@ -10,10 +10,16 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/guards/auth-guard';
 import { HeaderComponent } from 'src/app/components/shared/header/header.component';
 import { SidenavComponent } from 'src/app/components/shared/sidenav/sidenav.component';
+import { NovaListaComponent } from 'src/app/components/modals/nova-lista/nova-lista.component';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { DateService } from 'src/app/services/date.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 let components = [
   HeaderComponent,
   SidenavComponent,
+  NovaListaComponent
 ]
 
 let modules = [
@@ -34,6 +40,9 @@ let modules = [
   ],
   imports: [
     ...modules,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaterialTimepickerModule.setLocale('pt-BR')
   ],
   exports: [
     ...components,
@@ -44,6 +53,10 @@ let modules = [
     AuthService,
     SessionService,
     AuthGuard,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    DateService,
   ]
 })
 export class SharedModule { }

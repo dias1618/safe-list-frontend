@@ -26,7 +26,7 @@ export class ListaParticipantesPdf{
     });
 
     
-    this.generateReport.addTitle(`Paróquia Nossa Senhora das Candeias`, {fontSize: 16});
+    this.generateReport.addTitle(this.lista.nomeCapela, {fontSize: 16});
     this.generateReport.addSubtitle(`Lista de participantes do dia ${format(new Date(this.lista.data), 'dd/MM/yyyy')} (${format(new Date(this.lista.horaInicial), 'HH:mm')} - ${format(new Date(this.lista.horaFinal), 'HH:mm')})`, {fontSize: 14});
     this.generateReport.addRow([
       {text: `Posição`, fontSize: 12, margin: 20},

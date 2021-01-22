@@ -46,4 +46,8 @@ export class ListaController{
             .then(value => listas = value.data);
         return listas;
     }
+
+    async repetirLista(id:number):Promise<any>{
+        return await axios.post<any>(`${environment.baseUrl}/listas/${id}`, environment.axiosConfig);
+    }
 }

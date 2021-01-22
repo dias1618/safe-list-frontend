@@ -71,7 +71,7 @@ export class GenerateReport{
             }
         }
         this.contagemLinhas++;
-        if(this.contagemLinhas > 30){
+        if(this.contagemLinhas > 35){
             this.index++;
             this.pages[this.index] = this.pdfDoc.addPage();
             this.altura = this.height - 50;

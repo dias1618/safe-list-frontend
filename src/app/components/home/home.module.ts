@@ -28,7 +28,6 @@ let components = [
   DataComponent,
   GridListasComponent,
   ButtonAddComponent,
-  NovaListaComponent,
   GridProximasListasComponent
 ]
 
