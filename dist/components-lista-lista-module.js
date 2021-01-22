@@ -14175,11 +14175,17 @@ __webpack_require__.r(__webpack_exports__);
 
 class DependenteValidator {
     validate(data) {
-        this.validateNome(data.participante);
+        this.validateNome(data.dependente);
+        this.validateNomeRepetido(data.dependente, data.participante);
     }
-    validateNome(participante) {
-        if (!participante.nome || participante.nome == '')
+    validateNome(dependente) {
+        if (!dependente.nome || dependente.nome == '')
             throw new _errors_validation_error__WEBPACK_IMPORTED_MODULE_0__["ValidationError"]('Faltando nome do dependente');
+    }
+    validateNomeRepetido(dependente, participante) {
+        for (let dependenteRegistrado of participante.dependentes)
+            if (dependenteRegistrado.nome == dependente.nome)
+                throw new _errors_validation_error__WEBPACK_IMPORTED_MODULE_0__["ValidationError"]('Dependente já cadastrado');
     }
 }
 
@@ -22012,7 +22018,7 @@ let NovoParticipanteComponent = class NovoParticipanteComponent {
             this.maximoParticipantesValidator.validate({ lista: new src_app_models_lista_model__WEBPACK_IMPORTED_MODULE_10__["ListaModel"](this.data['lista']), participante: participante });
     }
     validateDependente(dependente) {
-        this.dependenteValidator.validate({ participante: dependente });
+        this.dependenteValidator.validate({ dependente: dependente, participante: this.participante });
     }
     adicionarDependente() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {

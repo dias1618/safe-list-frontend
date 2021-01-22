@@ -61,7 +61,7 @@ export class NovoParticipanteComponent implements OnInit {
   }
 
   validateDependente(dependente:ParticipanteModel){
-    this.dependenteValidator.validate({participante: dependente});
+    this.dependenteValidator.validate({dependente: dependente, participante: this.participante});
   }
 
   async adicionarDependente(){
