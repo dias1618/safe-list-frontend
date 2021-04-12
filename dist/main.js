@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/dias1618/Projetos/safe-list/safe-list-frontend/src/main.ts */"zUnb");
+module.exports = __webpack_require__(/*! D:\Projetos\safe-list\safe-list-frontend\src\main.ts */"zUnb");
 
 
 /***/ }),

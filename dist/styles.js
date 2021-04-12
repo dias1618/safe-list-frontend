@@ -58,9 +58,9 @@ ___CSS_LOADER_EXPORT___.push([module.i, "html, body {\n  height: 100%;\n}\n\nbod
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/dias1618/Projetos/safe-list/safe-list-frontend/node_modules/@angular/material/prebuilt-themes/indigo-pink.css */"8jWO");
-__webpack_require__(/*! /home/dias1618/Projetos/safe-list/safe-list-frontend/src/styles.scss */"+EN/");
-module.exports = __webpack_require__(/*! /home/dias1618/Projetos/safe-list/safe-list-frontend/node_modules/ngx-toastr/toastr.css */"G9EY");
+__webpack_require__(/*! D:\Projetos\safe-list\safe-list-frontend\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"8jWO");
+__webpack_require__(/*! D:\Projetos\safe-list\safe-list-frontend\src\styles.scss */"+EN/");
+module.exports = __webpack_require__(/*! D:\Projetos\safe-list\safe-list-frontend\node_modules\ngx-toastr\toastr.css */"G9EY");
 
 
 /***/ }),
