@@ -1408,7 +1408,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Configuracoes", function() { return Configuracoes; });
 class Configuracoes {
     constructor() {
-        this._maxParticipantes = 220;
+        this._maxParticipantes = 250;
     }
     get maxParticipantes() {
         return this._maxParticipantes;
