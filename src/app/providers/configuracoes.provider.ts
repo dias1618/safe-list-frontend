@@ -2,7 +2,7 @@ export class Configuracoes{
     private _maxParticipantes:number;
 
     constructor(){
-        this._maxParticipantes = 350;
+        this._maxParticipantes = 380;
     }
 
     get maxParticipantes():number{
